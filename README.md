@@ -1,7 +1,7 @@
 pills
 =====
 
-[![Build Status](https://travis-ci.org/shubaivan/pills.svg)](https://travis-ci.org/shubaivan/pills)
+[![Build Status](https://travis-ci.org/shubaivan/pills.svg?branch=develop)](https://travis-ci.org/shubaivan/pills)
 
 A Symfony project created on July 18, 2015, 10:10 am.
 What's inside?
