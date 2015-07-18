@@ -14,8 +14,7 @@
             <argument type="collection">
                 <argument key="facebook">facebookId</argument>
                 <argument key="vkontakte">vkontakteId</argument>
-                <argument key="linkedin">linkedinId</argument>
-                <argument key="github">githubId</argument>
+
             </argument>
             <call method="setFacebookProvider">
                 <argument type="service" id="geekhub.user.facebook_provider" />
@@ -23,19 +22,13 @@
             <call method="setVkontakteProvider">
                 <argument type="service" id="geekhub.user.vkontakte_provider" />
             </call>
-            <call method="setLinkedinProvider">
-                <argument type="service" id="geekhub.user.linkedin_provider" />
-            </call>
-            <call method="setGithubProvider">
-                <argument type="service" id="geekhub.user.github_provider" />
-            </call>
+
 
         </service>
 
         <service id="geekhub.user.facebook_provider" class="UserBundle\Providers\FacebookProvider" />
         <service id="geekhub.user.vkontakte_provider" class="UserBundle\Providers\VkontakteProvider"/>
-        <service id="geekhub.user.linkedin_provider" class="UserBundle\Providers\LinkedinProvider"/>
-        <service id="geekhub.user.github_provider" class="UserBundle\Providers\GithubProvider"/>
+
     </services>
 
 </container>
