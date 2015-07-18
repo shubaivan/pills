@@ -2,6 +2,7 @@ pills
 =====
 
 [![Build Status](https://travis-ci.org/shubaivan/pills.svg?branch=develop)](https://travis-ci.org/shubaivan/pills)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/shubaivan/pills/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/shubaivan/pills/?branch=develop)
 
 A Symfony project created on July 18, 2015, 10:10 am.
 What's inside?

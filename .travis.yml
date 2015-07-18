@@ -2,7 +2,7 @@ language: php
 php:
 - "5.5.9"
 env:
-- SYMFONY_VERSION=2.7.*
+- SYMFONY_VERSION=2.6.*
 before_script:
 # Copy skeleton parameters file
 - cp app/config/parameters.yml.dist app/config/parameters.yml

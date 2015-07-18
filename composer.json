@@ -9,8 +9,12 @@
         }
     },
     "require": {
-        "php": ">=5.3.9",
-        "symfony/symfony": "2.7.*",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
+        "ext-pdo": "*",
+        "ext-pdo_pgsql": "*",
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.6.*",
         "doctrine/orm": "~2.2,>=2.2.3,<2.5",
         "doctrine/dbal": "<2.5",
         "doctrine/doctrine-bundle": "~1.4",
@@ -19,7 +23,16 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "gedmo/doctrine-extensions": "2.3.*",
+        "stof/doctrine-extensions-bundle": "^1.1",
+        "hwi/oauth-bundle": "dev-master#a9f88f394e4680d5383b9a129f0e21fc74ca187f",
+        "friendsofsymfony/user-bundle": "2.0.*@dev",
+        "knplabs/gaufrette":                    "dev-master",
+        "knplabs/knp-gaufrette-bundle":         "dev-master",
+        "amazonwebservices/aws-sdk-for-php":    "dev-master",
+        "hautelook/alice-bundle": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "2.2.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
