@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="acme_storage.amazon_s3.class">AmazonS3</parameter>
+
+        <parameter key="acme_storage.photo_uploader.class">StorageBundle\Upload\PhotoUploader</parameter>
+    </parameters>
+
+    <services>
+        <service id="acme_storage.amazon_s3" class="%acme_storage.amazon_s3.class%">
+            <argument type="collection">
+                <argument key="key">%acme_storage.amazon_s3.aws_key%</argument>
+                <argument key="secret">%acme_storage.amazon_s3.aws_secret_key%</argument>
+            </argument>
+        </service>
+
+        <service id="acme_storage.photo_uploader" class="%acme_storage.photo_uploader.class%">
+            <argument type="service" id="photo_storage_filesystem" />
+        </service>
+
+    </services>
+</container>

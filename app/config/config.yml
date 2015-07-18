@@ -73,8 +73,37 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+    transport:  "%mailer_transport%"
+#    encryption: ssl
+#    auth_mode:  login
+    host: "%mailer_host%"
+    username: "%mailer_user%"
+    password: "%mailer_password%"
+    port: 587
+
+stof_doctrine_extensions:
+    default_locale: "%locale%"
+    orm:
+        default:
+            timestampable: true
+            sluggable:     true
+#            translatable:  true
+
+knp_gaufrette:
+    adapters:
+        photo_storage:
+            amazon_s3:
+                amazon_s3_id: acme_storage.amazon_s3
+                bucket_name:  %amazon_s3_bucket_name%
+                create:       false
+                options:
+                    create: true
+    filesystems:
+        photo_storage:
+            adapter:    photo_storage
+            alias:      photo_storage_filesystem
+storage:
+    amazon_s3:
+        aws_key:        %amazon_aws_key%
+        aws_secret_key: %amazon_aws_secret_key%
+        base_url:       %amazon_s3_base_url%

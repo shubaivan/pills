@@ -26,13 +26,14 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "gedmo/doctrine-extensions": "2.3.*",
         "stof/doctrine-extensions-bundle": "^1.1",
-        "hwi/oauth-bundle": "dev-master#a9f88f394e4680d5383b9a129f0e21fc74ca187f",
+        "hwi/oauth-bundle": "0.3.8",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
         "knplabs/gaufrette":                    "dev-master",
         "knplabs/knp-gaufrette-bundle":         "dev-master",
         "amazonwebservices/aws-sdk-for-php":    "dev-master",
         "hautelook/alice-bundle": "dev-master",
-        "doctrine/doctrine-fixtures-bundle": "2.2.*"
+        "doctrine/doctrine-fixtures-bundle": "2.2.*",
+        "hipaway-travel/mandrill-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
