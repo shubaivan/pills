@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new StorageBundle\StorageBundle(),
             new Hip\MandrillBundle\HipMandrillBundle(),
+            new UserBundle\UserBundle(),
 
         );
 
