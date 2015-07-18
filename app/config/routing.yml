@@ -1,3 +1,5 @@
-app:
-    resource: "@AppBundle/Controller/"
+pills:
+    resource: "@PillsBundle/Controller/"
     type:     annotation
+    prefix:   /
+
