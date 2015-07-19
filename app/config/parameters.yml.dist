@@ -23,8 +23,8 @@ parameters:
     amazon_aws_secret_key: ~
     amazon_s3_base_url: ~
 
-    facebook_app_id: 1596531910597097
-    facebook_app_secret: d7f885bcede8b9858419e00c93bcc37a
+    facebook_app_id: ~
+    facebook_app_secret: ~
 
-    vkontakte_app_id: 5000048
-    vkontakte_app_secret: SVv3Rn3yOKD0JwGVzkxF
+    vkontakte_app_id: ~
+    vkontakte_app_secret: ~
