@@ -13,23 +13,26 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User extends BaseUser
 {
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
     /**
      * @ORM\Column(type="string")
      */
     protected $firstName;
+
     /**
      * @ORM\Column(type="string")
      */
     protected $lastName;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     public $avatar;
 
@@ -37,6 +40,7 @@ class User extends BaseUser
      * @ORM\Column(type="string", nullable=true)
      */
     protected $facebookId;
+
     /**
      * @ORM\Column(type="string", nullable=true)
      */
@@ -121,6 +125,18 @@ class User extends BaseUser
      */
     protected $socialNetworkName;
 
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", name="createdAt")
+     */
+    protected $createdAt;
+
+    /**
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    protected $deletedAt;
+
+
     public function isFakeEmail()
     {
         return false === strpos($this->email, '@example.com') && $this->email ? false : true;
@@ -130,6 +146,7 @@ class User extends BaseUser
     {
         return (($this->username == $this->vkontakteId) || ($this->username == $this->facebookId));
     }
+
 
     /**
      * Get id
@@ -586,5 +603,68 @@ class User extends BaseUser
     public function getPost()
     {
         return $this->post;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return User
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set deletedAt
+     *
+     * @param \DateTime $deletedAt
+     * @return User
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deletedAt
+     *
+     * @return \DateTime 
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+
+    public function setRoles(array $role)
+    {
+        $this->roles = $role;
+        return $this;
+    }
+    /**
+     * Get User Roles
+     *
+     * @return User roles array
+     */
+    public function getRoles()
+    {
+        $roles = $this->roles;
+        return $roles;
     }
 }
