@@ -1,0 +1,25 @@
+PillsBundle\Entity\Post:
+  post{1..10}:
+    title: <word()>
+    text: <realText()>
+    author: @user*
+
+PillsBundle\Entity\Tag:
+  tag{1..10}:
+    hashTag: <word()>
+    post: 2x @post*
+
+UserBundle\Entity\User:
+
+  users{1..20}:
+    firstName: <firstName()>
+    lastName: <lastName()>
+    username: <firstNameMale()>
+    vkontakteId: <numberBetween(1, 100000)>
+    facebookId: <numberBetween(1, 100000)>
+    post: 5x @post*
+    telephone: <phoneNumber()>
+    skype: skypeName
+    email: <email()>
+    password: <password()>
+    roles: <?php $names = ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROFILE_ONE', 'ROLE_PROFILE_TWO']; echo '['.$names[array_rand($names)].']'; ?>
