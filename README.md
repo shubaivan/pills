@@ -22,9 +22,11 @@ The Wall Redmine is uses with the following libraries and bundles:
    It provides a flexible framework for user management that aims to handle common tasks such as user registration and password
     retrieval.
 
-  * [**PHP Hipaway-Travel/HipMandrillBundle **][12] - Send transactional mail through mandrill.com. This bundle provides an easy api for Symfony2 Projects..
+  * [**PHP Hipaway-Travel/HipMandrillBundle**][12] - Send transactional mail through mandrill.com. This bundle provides an easy api for Symfony2 Projects..
 
   * [**PHP KnpGaufretteBundle, KnpLabs**][13] - Provides a Gaufrette integration for your Symfony projects.
+
+  * [**PHP KnpPaginatorBundle, KnpLabs**][14] -  This component introduces a different way for pagination handling
 
   * [**AliceBundle, hautelook**][10] - A Symfony2 bundle to help load Doctrine Fixtures with Alice
 
@@ -46,3 +48,4 @@ Enjoy!
 [11]: https://github.com/hwi/HWIOAuthBundle
 [12]: https://github.com/Hipaway-Travel/HipMandrillBundle
 [13]: https://github.com/KnpLabs/KnpGaufretteBundle
+[14]: https://github.com/KnpLabs/KnpPaginatorBundle
