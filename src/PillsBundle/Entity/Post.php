@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="PillsBundle\Entity\Repository\PostRepository")
  * @ORM\Table(name="post")
  */
 class Post
@@ -35,7 +35,7 @@ class Post
     protected $createdAt;
 
     /**
-     * @ORM\Column(name="photo_storage")
+     * @ORM\Column(name="photo_storage", nullable=true)
      * @Assert\File( maxSize="20M")
      */
     private $photo;
@@ -51,6 +51,19 @@ class Post
      * @ORM\Column(type="string", length=128, unique=true)
      */
     protected $slug;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Tag", mappedBy="post")
+     * @ORM\JoinTable(name="posts_tag")
+     */
+    protected $tag;
+
+    /**
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    protected $deletedAt;
+
+
 
     /**
      * Get id
@@ -198,5 +211,68 @@ class Post
     public function getAuthor()
     {
         return $this->author;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tag = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add tag
+     *
+     * @param \PillsBundle\Entity\Tag $tag
+     * @return Post
+     */
+    public function addTag(\PillsBundle\Entity\Tag $tag)
+    {
+        $this->tag[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param \PillsBundle\Entity\Tag $tag
+     */
+    public function removeTag(\PillsBundle\Entity\Tag $tag)
+    {
+        $this->tag->removeElement($tag);
+    }
+
+    /**
+     * Get tag
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
+
+    /**
+     * Set deletedAt
+     *
+     * @param \DateTime $deletedAt
+     * @return Post
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deletedAt
+     *
+     * @return \DateTime
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
     }
 }
