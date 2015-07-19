@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new StorageBundle\StorageBundle(),
             new Hip\MandrillBundle\HipMandrillBundle(),
             new UserBundle\UserBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
         );
 
