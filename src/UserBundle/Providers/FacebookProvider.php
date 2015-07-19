@@ -16,8 +16,11 @@ class FacebookProvider
      */
     public function setUserData(User $user, UserResponseInterface $response)
     {
+
         $arrResponse = $response->getResponse();
         $responseArray = $response->getResponse();
+
+//        dump($arrResponse);exit;
 
         $userFirstName = strstr($response->getRealName(), ' ', true);
         $userLastName = str_replace(' ', '', strstr($response->getRealName(), ' '));

@@ -12,10 +12,6 @@ class UserProvider extends BaseClass
 
     private $facebookProvider;
 
-    private $linkedinProvider;
-
-    private $githubProvider;
-
     /**
      * {@inheritDoc}
      */
@@ -113,13 +109,4 @@ class UserProvider extends BaseClass
         $this->facebookProvider = $facebookProvider;
     }
 
-    public function setLinkedinProvider(LinkedinProvider $linkedinProvider)
-    {
-        $this->linkedinProvider = $linkedinProvider;
-    }
-
-    public function setGithubProvider(GithubProvider $githubProvider)
-    {
-        $this->githubProvider = $githubProvider;
-    }
 }
