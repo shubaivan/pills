@@ -14,8 +14,10 @@
         <service id="user" class="PillsBundle\Services\UserService">
             <argument type="service" id="session"/>
         </service>
+
+        <service id="twig.pills_extension" class="PillsBundle\Twig\PillsBundleExtension">
+            <tag name="twig.extension" />
+        </service>
     </services>
-
-
 
 </container>

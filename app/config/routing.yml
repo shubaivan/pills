@@ -1,3 +1,7 @@
+profile:
+    resource: "@ProfileBundle/Resources/config/routing.yml"
+    prefix:   /profile
+
 pills:
     resource: "@PillsBundle/Controller/"
     type:     annotation

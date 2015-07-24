@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <a class="navbar-brand" href="{{ path('get_all_posts') }}">Home</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -23,9 +23,11 @@
                     {#<a href="{{ path('photo_add_get') }}">+ photo </a>#}
                 {#</li>#}
 
-                {#<li>#}
-                    {#<a href="{{ path('artel_profile_homepage', {'slug': app.user.slug}) }}">{{ app.user.username }}</a>#}
-                {#</li>#}
+                <li>
+                    <a href="{{ path('profile_homepage', {'slug': app.user.slug}) }}">{{ app.user.username }}</a>
+                </li>
+
+
 
                 <li>
                     <a href="{{ path('fos_user_security_logout') }}">Logout</a>
@@ -47,12 +49,7 @@
             {% endif %}
 
             </ul>
-            <div
-                    class="fb-like"
-                    data-share="true"
-                    data-width="450"
-                    data-show-faces="true">
-            </div>
+
         </div>
         <!-- /.navbar-collapse -->
     </div>

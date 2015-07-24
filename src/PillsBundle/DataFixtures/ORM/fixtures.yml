@@ -1,16 +1,35 @@
 PillsBundle\Entity\Post:
-  post{1..10}:
+  post{1..40}:
     title: <word()>
     text: <realText()>
     author: @user*
+    category: @category*
+
+PillsBundle\Entity\Category:
+  category1:
+    title: Pills
+  category2:
+      title: Aerosols
+  category3:
+      title: Mixture
+  category4:
+      title: Powders
+  category5:
+      title: Hygiene
+  category6:
+      title: Antibiotics
+  category7:
+      title: Flu
+  category8:
+      title: Vitamins
+
 
 PillsBundle\Entity\Tag:
   tag{1..10}:
     hashTag: <word()>
-    post: 2x @post*
+    post: 4x @post*
 
 UserBundle\Entity\User:
-
   users{1..20}:
     firstName: <firstName()>
     lastName: <lastName()>
