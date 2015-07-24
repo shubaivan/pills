@@ -1,0 +1,8 @@
+<h4>Top Tag</h4>
+<ul>
+    {% for tag in tags %}
+        <li>
+            <a href="{{ path('get_posts_for_tags', {'slug': tag.hashSlug}) }}">{{ tag.hashTag|hashTag }}</a>
+        </li>
+    {% endfor %}
+</ul>
