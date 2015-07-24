@@ -1,0 +1,34 @@
+{#{% include "ArtelProfileBundle:Developer:profile_sidebar.html.twig" %}#}
+
+{{ form_errors(infoForm) }}
+{{ form_start(infoForm, {'action': path('profile_submit_personal_information', {'slug': developer.slug}), 'method': 'POST'}) }}
+
+<div class="form-group">
+    {{ form_label(infoForm.firstname, label|default(null), {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_widget(infoForm.firstname, {'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="form-group">
+    {{ form_label(infoForm.lastname, label|default(null), {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_widget(infoForm.lastname, {'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="form-group">
+    {{ form_label(infoForm.email, label|default(null), {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_widget(infoForm.email, {'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="form-group">
+    {{ form_label(infoForm.country, label|default(null), {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_widget(infoForm.country, {'attr': {'class': 'form-control select2 select2_sample4'}}) }}
+</div>
+<div class="form-group">
+    {{ form_label(infoForm.skype, label|default(null), {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_widget(infoForm.skype, {'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="form-group">
+    {{ form_label(infoForm.telephone, label|default(null), {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_widget(infoForm.telephone, {'attr': {'class': 'form-control mask_phone'}}) }}
+</div>
+<div class="margin-top-20">
+    {{ form_widget(infoForm.save, {'attr': {'class': 'btn green-haze'}}) }}
+</div>
+
+{{ form_end(infoForm) }}
