@@ -21,7 +21,7 @@ class UserController extends Controller
 //        dump($userAuth);exit;
 
         if (!$userAuth) {
-            return $this->redirect($this->generateUrl('homepage'));
+            return $this->redirect($this->generateUrl('get_all_posts'));
         }
 
         $em = $this->get('doctrine.orm.entity_manager');
@@ -38,7 +38,7 @@ class UserController extends Controller
         if ($form->isValid()) {
             $em->flush();
 
-            $router = $this->generateUrl("homepage");
+            $router = $this->generateUrl("get_all_posts");
 
             return $this->redirect(
                 $router
