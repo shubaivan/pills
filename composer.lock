@@ -2740,10 +2740,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "ext-intl": "*",
-        "ext-mbstring": "*",
-        "ext-pdo": "*",
-        "ext-pdo_pgsql": "*",
         "php": ">=5.3.3"
     },
     "platform-dev": []
