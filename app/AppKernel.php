@@ -27,7 +27,7 @@ class AppKernel extends Kernel
             new Hip\MandrillBundle\HipMandrillBundle(),
             new UserBundle\UserBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-
+            new ProfileBundle\ProfileBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
