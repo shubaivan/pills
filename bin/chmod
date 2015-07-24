@@ -1,0 +1,7 @@
+<?php
+
+require __DIR__ . '/base_script.php';
+
+show_run("cache", "chmod 777 -R app/cache");
+show_run("logs", "chmod 777 -R app/logs");
+
