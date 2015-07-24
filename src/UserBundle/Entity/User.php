@@ -136,6 +136,48 @@ class User extends BaseUser
      */
     protected $deletedAt;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="main_skill", type="string", length=80, nullable=true)
+     */
+    private $main_skill;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="skills", type="array", nullable=true)
+     */
+    private $skills = array();
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="level", type="string", length=10, nullable=true)
+     */
+    private $level;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="qualification", type="string", length=80, nullable=true)
+     */
+    private $qualification;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="english", type="string", length=30, nullable=true)
+     */
+    private $english;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rate", type="smallint", nullable=true)
+     */
+    private $rate;
+
 
     public function isFakeEmail()
     {
@@ -666,5 +708,149 @@ class User extends BaseUser
     {
         $roles = $this->roles;
         return $roles;
+    }
+
+    /**
+     * Set mainSkill
+     *
+     * @param string $mainSkill
+     *
+     * @return User
+     */
+    public function setMainSkill($mainSkill)
+    {
+        $this->main_skill = $mainSkill;
+
+        return $this;
+    }
+
+    /**
+     * Get mainSkill
+     *
+     * @return string
+     */
+    public function getMainSkill()
+    {
+        return $this->main_skill;
+    }
+
+    /**
+     * Set skills
+     *
+     * @param array $skills
+     *
+     * @return User
+     */
+    public function setSkills($skills)
+    {
+        $this->skills = $skills;
+
+        return $this;
+    }
+
+    /**
+     * Get skills
+     *
+     * @return array
+     */
+    public function getSkills()
+    {
+        return $this->skills;
+    }
+
+    /**
+     * Set level
+     *
+     * @param string $level
+     *
+     * @return User
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return string
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    /**
+     * Set qualification
+     *
+     * @param string $qualification
+     *
+     * @return User
+     */
+    public function setQualification($qualification)
+    {
+        $this->qualification = $qualification;
+
+        return $this;
+    }
+
+    /**
+     * Get qualification
+     *
+     * @return string
+     */
+    public function getQualification()
+    {
+        return $this->qualification;
+    }
+
+    /**
+     * Set english
+     *
+     * @param string $english
+     *
+     * @return User
+     */
+    public function setEnglish($english)
+    {
+        $this->english = $english;
+
+        return $this;
+    }
+
+    /**
+     * Get english
+     *
+     * @return string
+     */
+    public function getEnglish()
+    {
+        return $this->english;
+    }
+
+    /**
+     * Set rate
+     *
+     * @param integer $rate
+     *
+     * @return User
+     */
+    public function setRate($rate)
+    {
+        $this->rate = $rate;
+
+        return $this;
+    }
+
+    /**
+     * Get rate
+     *
+     * @return integer
+     */
+    public function getRate()
+    {
+        return $this->rate;
     }
 }
