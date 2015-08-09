@@ -33,4 +33,37 @@ class TagRepository extends EntityRepository
         return $tags;
     }
 
+    public function getTag($hash)
+    {
+
+        $qb = $this->getEntityManager()->createQueryBuilder('t');
+
+        $qb
+            ->select('t')
+            ->from('PillsBundle:Tag', 't')
+            ->where('t.hashTag = :hash')
+            ->setParameter('hash', $hash)
+            ->getQuery();
+        $query = $qb->getQuery();
+        $results = $query->getResult();
+
+        return $results;
+    }
+
+    public function getPostByCategory($hash)
+    {
+
+        $qb = $this->getEntityManager()->createQueryBuilder('t');
+
+        $qb
+            ->select('t')
+            ->from('PillsBundle:Post', 't')
+            ->where('t. = :hash')
+            ->setParameter('hash', $hash)
+            ->getQuery();
+        $query = $qb->getQuery();
+        $results = $query->getResult();
+
+        return $results;
+    }
 }
