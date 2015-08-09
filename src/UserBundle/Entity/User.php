@@ -90,6 +90,14 @@ class User extends BaseUser
     private $country;
 
     /**
+     * @var \PillsBundle\Entity\Cities
+     *
+     * @ORM\ManyToOne(targetEntity="\PillsBundle\Entity\Cities")
+     * @ORM\JoinColumn(name="city_id", referencedColumnName="id", nullable=true)
+     */
+    private $city;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="skype", type="string", length=255, nullable=true)
@@ -890,5 +898,28 @@ class User extends BaseUser
     public function getGetMed()
     {
         return $this->getMed;
+    }
+
+    /**
+     * Set city
+     *
+     * @param \PillsBundle\Entity\Cities $city
+     * @return User
+     */
+    public function setCity(\PillsBundle\Entity\Cities $city = null)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return \PillsBundle\Entity\Cities 
+     */
+    public function getCity()
+    {
+        return $this->city;
     }
 }
