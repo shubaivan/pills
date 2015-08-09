@@ -14,7 +14,7 @@ class FacebookProvider
      * @param  UserResponseInterface $response
      * @return User
      */
-    public function setUserData(User $user, UserResponseInterface $response)
+    public function setUserData(User $user, UserResponseInterface $response,  $country, $city)
     {
 
         $arrResponse = $response->getResponse();
@@ -28,6 +28,8 @@ class FacebookProvider
 
         $user
             ->setEnabled(true)
+            ->setCountry($country)
+            ->setCity($city)
             ->setUsername($response->getNickname())
             ->setFirstName($responseArray['first_name'])
             ->setLastName($responseArray['last_name'])
