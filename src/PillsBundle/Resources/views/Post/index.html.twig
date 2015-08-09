@@ -28,7 +28,7 @@
         <a href="#">Blog Post {{ post.title }}</a>
     </h2>
     <p class="lead">
-        Category:<a href="{{ path('get_posts_for_category', {'slug': post.category.slug}) }}">{{ post.category }}</a>
+        Category:<a href="{{ path('get_posts_by_category', {'category': post.category.slug}) }}">{{ post.category }}</a>
     </p>
 
 
@@ -41,7 +41,7 @@
     <p>{{ post.text }}.</p>
     {#<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>#}
         {% for tags in post.tag %}
-        <a class="btn btn-primary" href="{{ path('get_posts_for_tags', {'slug': tags.hashSlug }) }}">{{ tags.hashTag }} <span class="glyphicon glyphicon-chevron-right"></span></a>
+        <a class="btn btn-primary" href="{{ path('get_posts_by_tag', {'tag': tags.hashSlug }) }}">{{ tags.hashTag }} <span class="glyphicon glyphicon-chevron-right"></span></a>
         {% endfor %}
 
     <hr>

@@ -2,7 +2,7 @@
 <ul>
     {% for tag in tags %}
         <li>
-            <a href="{{ path('get_posts_for_tags', {'slug': tag.hashSlug}) }}">{{ tag.hashTag|hashTag }}</a>
+            <a href="{{ path('get_posts_by_tag', {'tag': tag.hashSlug}) }}">{{ tag.hashTag|hashTag }}</a>
         </li>
     {% endfor %}
 </ul>
