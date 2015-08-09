@@ -111,9 +111,9 @@ class User extends BaseUser
     protected $post;
 
     /**
-     * @ORM\OneToMany(targetEntity="\PillsBundle\Entity\Get", mappedBy="author",  cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="\PillsBundle\Entity\GetMed", mappedBy="author",  cascade={"persist", "remove"})
      */
-    protected $get;
+    protected $getMed;
 
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -860,35 +860,35 @@ class User extends BaseUser
     }
 
     /**
-     * Add get
+     * Add getMed
      *
-     * @param \PillsBundle\Entity\Get $get
+     * @param \PillsBundle\Entity\GetMed $getMed
      * @return User
      */
-    public function addGet(\PillsBundle\Entity\Get $get)
+    public function addGetMed(\PillsBundle\Entity\GetMed $getMed)
     {
-        $this->get[] = $get;
+        $this->getMed[] = $getMed;
 
         return $this;
     }
 
     /**
-     * Remove get
+     * Remove getMed
      *
-     * @param \PillsBundle\Entity\Get $get
+     * @param \PillsBundle\Entity\GetMed $getMed
      */
-    public function removeGet(\PillsBundle\Entity\Get $get)
+    public function removeGetMed(\PillsBundle\Entity\GetMed $getMed)
     {
-        $this->get->removeElement($get);
+        $this->getMed->removeElement($getMed);
     }
 
     /**
-     * Get get
+     * Get getMed
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getGet()
+    public function getGetMed()
     {
-        return $this->get;
+        return $this->getMed;
     }
 }

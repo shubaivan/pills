@@ -35,10 +35,10 @@ class Tag
     protected $post;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Get", inversedBy="tag")
+     * @ORM\ManyToMany(targetEntity="GetMed", inversedBy="tag")
      * @ORM\JoinColumn(name="get_id", referencedColumnName="id")
      */
-    protected $get;
+    protected $getMed;
 
     /**
      * @Gedmo\Timestampable(on="create")
@@ -56,6 +56,7 @@ class Tag
     public function __construct()
     {
         $this->post = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->getMed = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -115,44 +116,6 @@ class Tag
     }
 
     /**
-     * Add post
-     *
-     * @param \PillsBundle\Entity\Post $post
-     * @return Tag
-     */
-    public function addPost(\PillsBundle\Entity\Post $post)
-    {
-        $this->post[] = $post;
-
-        return $this;
-    }
-
-    /**
-     * Remove post
-     *
-     * @param \PillsBundle\Entity\Post $post
-     */
-    public function removePost(\PillsBundle\Entity\Post $post)
-    {
-        $this->post->removeElement($post);
-    }
-
-    /**
-     * Get post
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPost()
-    {
-        return $this->post;
-    }
-
-    public function __toString()
-    {
-        return $this->hashTag;
-    }
-
-    /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
@@ -191,7 +154,7 @@ class Tag
     /**
      * Get deletedAt
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
     public function getDeletedAt()
     {
@@ -199,35 +162,68 @@ class Tag
     }
 
     /**
-     * Add get
+     * Add post
      *
-     * @param \PillsBundle\Entity\Get $get
+     * @param \PillsBundle\Entity\Post $post
      * @return Tag
      */
-    public function addGet(\PillsBundle\Entity\Get $get)
+    public function addPost(\PillsBundle\Entity\Post $post)
     {
-        $this->get[] = $get;
+        $this->post[] = $post;
 
         return $this;
     }
 
     /**
-     * Remove get
+     * Remove post
      *
-     * @param \PillsBundle\Entity\Get $get
+     * @param \PillsBundle\Entity\Post $post
      */
-    public function removeGet(\PillsBundle\Entity\Get $get)
+    public function removePost(\PillsBundle\Entity\Post $post)
     {
-        $this->get->removeElement($get);
+        $this->post->removeElement($post);
     }
 
     /**
-     * Get get
+     * Get post
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getGet()
+    public function getPost()
     {
-        return $this->get;
+        return $this->post;
+    }
+
+    /**
+     * Add getMed
+     *
+     * @param \PillsBundle\Entity\GetMed $getMed
+     * @return Tag
+     */
+    public function addGetMed(\PillsBundle\Entity\GetMed $getMed)
+    {
+        $this->getMed[] = $getMed;
+
+        return $this;
+    }
+
+    /**
+     * Remove getMed
+     *
+     * @param \PillsBundle\Entity\GetMed $getMed
+     */
+    public function removeGetMed(\PillsBundle\Entity\GetMed $getMed)
+    {
+        $this->getMed->removeElement($getMed);
+    }
+
+    /**
+     * Get getMed
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGetMed()
+    {
+        return $this->getMed;
     }
 }

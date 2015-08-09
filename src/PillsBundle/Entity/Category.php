@@ -30,9 +30,9 @@ class Category
     protected $posts;
 
     /**
-     * @ORM\OneToMany(targetEntity="Get", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="GetMed", mappedBy="category")
      */
-    protected $get;
+    protected $getMed;
 
     /**
      * @Gedmo\Slug(fields={"title"})
@@ -45,6 +45,7 @@ class Category
     public function __construct()
     {
         $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->getMed = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -81,6 +82,29 @@ class Category
     }
 
     /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Category
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
      * Add posts
      *
      * @param \PillsBundle\Entity\Post $posts
@@ -113,64 +137,41 @@ class Category
         return $this->posts;
     }
 
-    public function __toString()
-    {
-        return $this->title;
-    }
-
     /**
-     * Set slug
+     * Add getMed
      *
-     * @param string $slug
+     * @param \PillsBundle\Entity\GetMed $getMed
      * @return Category
      */
-    public function setSlug($slug)
+    public function addGetMed(\PillsBundle\Entity\GetMed $getMed)
     {
-        $this->slug = $slug;
+        $this->getMed[] = $getMed;
 
         return $this;
     }
 
     /**
-     * Get slug
+     * Remove getMed
      *
-     * @return string 
+     * @param \PillsBundle\Entity\GetMed $getMed
      */
-    public function getSlug()
+    public function removeGetMed(\PillsBundle\Entity\GetMed $getMed)
     {
-        return $this->slug;
+        $this->getMed->removeElement($getMed);
     }
 
     /**
-     * Add get
-     *
-     * @param \PillsBundle\Entity\Get $get
-     * @return Category
-     */
-    public function addGet(\PillsBundle\Entity\Get $get)
-    {
-        $this->get[] = $get;
-
-        return $this;
-    }
-
-    /**
-     * Remove get
-     *
-     * @param \PillsBundle\Entity\Get $get
-     */
-    public function removeGet(\PillsBundle\Entity\Get $get)
-    {
-        $this->get->removeElement($get);
-    }
-
-    /**
-     * Get get
+     * Get getMed
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getGet()
+    public function getGetMed()
     {
-        return $this->get;
+        return $this->getMed;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 }
