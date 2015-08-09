@@ -30,10 +30,17 @@
         </service>
 
         <service id="pills.city.repository"
-                 class="PillsBundle\Entity\Repository\Cities"
+                 class="PillsBundle\Entity\Repository\CitiesRepository"
                  factory-service="doctrine.orm.default_entity_manager"
                  factory-method="getRepository">
             <argument>PillsBundle:Cities</argument>
+        </service>
+
+        <service id="pills.country.repository"
+                 class="PillsBundle\Entity\Repository\CountryRepository"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository">
+            <argument>PillsBundle:Country</argument>
         </service>
 
     </services>

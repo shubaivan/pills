@@ -15,6 +15,7 @@
             <argument type="service" id="profile.additional_function" />
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="pills.city.repository" />
+            <argument type="service" id="pills.country.repository" />
             <argument type="collection">
                 <argument key="facebook">facebookId</argument>
                 <argument key="vkontakte">vkontakteId</argument>
