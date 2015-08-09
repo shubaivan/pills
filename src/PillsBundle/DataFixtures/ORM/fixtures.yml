@@ -5,8 +5,8 @@ PillsBundle\Entity\Post:
     author: @user*
     category: @category*
 
-PillsBundle\Entity\Get:
-  get{1..60}:
+PillsBundle\Entity\GetMed:
+  getMed{1..60}:
     title: <word()>
     text: <realText()>
     author: @user*
@@ -34,8 +34,8 @@ PillsBundle\Entity\Category:
 PillsBundle\Entity\Tag:
   tag{1..50}:
     hashTag: <word()>
-    post: 4x @post*
-    get: 4x @get*
+    post: 5x @post*
+    getMed: 5x @getMed*
 
 UserBundle\Entity\User:
   users{1..60}:
@@ -45,7 +45,7 @@ UserBundle\Entity\User:
     vkontakteId: <numberBetween(1, 100000)>
     facebookId: <numberBetween(1, 100000)>
     post: 2x @post*
-    get: 2x @get*
+    getMed: 2x @getMed*
     telephone: <phoneNumber()>
     skype: skypeName
     email: <email()>
