@@ -12,6 +12,9 @@
         <service id="app.provider.user_provider" class="%my_user_provider.class%">
             <argument type="service" id="fos_user.user_manager" />
             <argument type="service" id="request_stack" />
+            <argument type="service" id="artel.profile.additional_function" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="artel.pills.city.repository" />
             <argument type="collection">
                 <argument key="facebook">facebookId</argument>
                 <argument key="vkontakte">vkontakteId</argument>
