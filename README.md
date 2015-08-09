@@ -8,7 +8,7 @@ A Symfony project created on July 18, 2015, 10:10 am.
 What's inside?
 --------------
 
-The Wall Redmine is uses with the following libraries and bundles:
+The Pills with the following libraries and bundles:
 
 
 
