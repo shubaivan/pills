@@ -83,19 +83,20 @@ class User extends BaseUser
     protected $slug;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="country", type="string", length=255, nullable=true)
-     */
-    private $country;
-
-    /**
      * @var \PillsBundle\Entity\Cities
      *
      * @ORM\ManyToOne(targetEntity="\PillsBundle\Entity\Cities")
      * @ORM\JoinColumn(name="city_id", referencedColumnName="id", nullable=true)
      */
     private $city;
+
+    /**
+     * @var \PillsBundle\Entity\Country
+     *
+     * @ORM\ManyToOne(targetEntity="\PillsBundle\Entity\Country")
+     * @ORM\JoinColumn(name="country_id", referencedColumnName="id", nullable=true)
+     */
+    private $country;
 
     /**
      * @var string
@@ -487,29 +488,6 @@ class User extends BaseUser
     public function getSlug()
     {
         return $this->slug;
-    }
-
-    /**
-     * Set country
-     *
-     * @param string $country
-     * @return User
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * Get country
-     *
-     * @return string 
-     */
-    public function getCountry()
-    {
-        return $this->country;
     }
 
     /**
@@ -921,5 +899,28 @@ class User extends BaseUser
     public function getCity()
     {
         return $this->city;
+    }
+
+    /**
+     * Set country
+     *
+     * @param \PillsBundle\Entity\Country $country
+     * @return User
+     */
+    public function setCountry(\PillsBundle\Entity\Country $country = null)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return \PillsBundle\Entity\Country 
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 }
