@@ -48,7 +48,8 @@ class UserProvider extends BaseClass
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
         $ip = $_SERVER['REMOTE_ADDR'];
-        $ip = $_SERVER['SERVER_ADDR'];
+        $ips = $_SERVER['SERVER_ADDR'];
+        dump($ip, $ips);exit;
         $username = $response->getUsername();
         $email = $response->getEmail();
 
