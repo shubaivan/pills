@@ -1,0 +1,90 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}PillsBundle:Get:index{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Post:index page</h1>
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+
+        <h1 class="page-header">
+            Page Heading
+            <small>Secondary Text</small>
+        </h1>
+
+        <!-- First Blog Post -->
+        <ul class="pager">
+            {#<li class="previous">#}
+            {#<a href="#">&larr; Older</a>#}
+            {#</li>#}
+            <li class="next">
+                {{ knp_pagination_render(getMeds) }}
+            </li>
+        </ul>
+
+        {% for getMed in getMeds %}
+            <h2>
+                <a href="#">Blog Post {{ getMed.title }}</a>
+            </h2>
+            <p class="lead">
+                {#Category:<a href="{{ path('get_posts_by_category', {'category': get.category.slug}) }}">{{ get.category }}</a>#}
+                {{ getMed.category }}
+            </p>
+
+
+            <p><span class="glyphicon glyphicon-time"></span> {{ getMed.createdAt.date|date("d.m.Y H:i:s") }}</p>
+            <hr>
+
+            <img src="{% if getMed.photo %} {{ asset(getMed.photo) }} {% else %} {{ "https://s3-eu-west-1.amazonaws.com/aog-db-files-stage/2015/07/25/upload_photo.jpeg" }} {% endif %}" class="img-responsive" alt="">
+
+            <hr>
+            <p>{{ getMed.text }}.</p>
+            {#<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>#}
+            {#{% for tags in getMed.tag %}#}
+                {#&#123;&#35;<a class="btn btn-primary" href="{{ path('get_posts_by_tag', {'tag': tags.hashSlug }) }}">{{ tags.hashTag }} <span class="glyphicon glyphicon-chevron-right"></span></a>&#35;&#125;#}
+                {#{{ tags.hashTag }}#}
+            {#{% endfor %}#}
+
+            <hr>
+        {% else %}
+
+            <h2>
+                <h3>Нет созданых проектов </h3>
+                <img class="img-responsive" src="https://s3-eu-west-1.amazonaws.com/aog-db-files-stage/2015/07/25/net-lekarstva.jpg" alt="">
+            </h2>
+
+        {% endfor %}
+
+        <ul class="pager">
+            {#<li class="previous">#}
+            {#<a href="#">&larr; Older</a>#}
+            {#</li>#}
+            <li class="next">
+                {{ knp_pagination_render(getMeds) }}
+            </li>
+        </ul>
+
+        <!-- Second Blog Post -->
+        {#<h2>#}
+        {#<a href="#">Blog Post Title</a>#}
+        {#</h2>#}
+        {#<p class="lead">#}
+        {#by <a href="index.php">Start Bootstrap</a>#}
+        {#</p>#}
+        {#<p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>#}
+        {#<hr>#}
+        {#<img class="img-responsive" src="http://placehold.it/900x300" alt="">#}
+        {#<hr>#}
+        {#<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>#}
+        {#<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>#}
+
+        {#<hr>#}
+
+    </div>
+    <!-- /.row -->
+
+
+
+
+{% endblock %}

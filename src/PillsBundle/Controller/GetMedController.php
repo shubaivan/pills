@@ -35,7 +35,7 @@ class GetMedController extends Controller
         );
 
         return [
-            'gets'=>$gets,
+            'getMeds'=>$gets,
             'user' => $this->get('user')->getInfo(),
         ];
     }
