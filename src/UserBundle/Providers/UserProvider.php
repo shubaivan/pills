@@ -7,11 +7,31 @@ use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider as BaseClass;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+use Symfony\Component\Security\Core\User\UserProviderInterface;
+use FOS\UserBundle\Model\UserManagerInterface;
+use Symfony\Component\PropertyAccess\PropertyAccess;
+
 class UserProvider extends BaseClass
 {
     private $vkontakteProvider;
 
     private $facebookProvider;
+
+    public $requestStack;
+
+    /**
+     * Constructor.
+     *
+     * @param UserManagerInterface $userManager FOSUB user provider.
+     * @param array                $properties  Property mapping.
+     */
+    public function __construct(UserManagerInterface $userManager, $requestStack, array $properties)
+    {
+        $this->requestStack = $requestStack;
+        $this->userManager = $userManager;
+        $this->properties  = array_merge($this->properties, $properties);
+        $this->accessor    = PropertyAccess::createPropertyAccessor();
+    }
 
     /**
      * {@inheritDoc}
@@ -50,6 +70,10 @@ class UserProvider extends BaseClass
 //        $ip = $_SERVER['REMOTE_ADDR'];
 //        $ips = $_SERVER['SERVER_ADDR'];
 //        dump($ip, $ips);exit;
+
+        $ip = $this->requestStack->getCurrentRequest()->getClientIP();
+        dump($ip);exit;
+//        $this->container->get('request_stack')->getCurrentRequest()->getClientIp();
         $username = $response->getUsername();
         $email = $response->getEmail();
 
