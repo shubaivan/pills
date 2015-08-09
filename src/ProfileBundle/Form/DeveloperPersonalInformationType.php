@@ -17,9 +17,13 @@ class DeveloperPersonalInformationType extends AbstractType
             ->add('firstname', null, array('label' => 'First Name', 'max_length' => 255, 'required' => false))
             ->add('lastname', null, array('label' => 'Last Name', 'max_length' => 255, 'required' => false))
             ->add('email', null, array('label' => 'Email', 'max_length' => 255, 'required' => false))
-            ->add('country', 'choice', array('label' => 'Country', 'max_length' => 255, 'required' => false,
-                'choices'   => $this->getCountries()))
+//            ->add('country', 'choice', array('label' => 'Country', 'max_length' => 255, 'required' => false,
+//                'choices'   => $this->getCountries()))
 //            ->add('company', null, array('label' => 'Company', 'max_length' => 255))
+
+//            ->add('city', 'cities', array('label' => 'Location','required' => false, 'mapped' => true, 'attr' => array('placeholder' => 'Select Location') ))
+//            ->add('country', 'country', array('label' => 'Country','required' => false, 'mapped' => true, 'attr' => array('placeholder' => 'Select Country') ))
+
             ->add('skype', null, array('label' => 'Skype', 'max_length' => 255, 'required' => false))
             ->add('telephone', null, array('label' => 'Phone', 'max_length' => 255, 'required' => false, 'attr' => array('data-inputmask' => "'alias': 'date'")))
             ->add('save', 'submit');
