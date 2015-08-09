@@ -6,6 +6,7 @@ use Buzz\Message\Request;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider as BaseClass;
 use PillsBundle\Entity\Cities;
+use PillsBundle\Entity\Country;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 use Symfony\Component\Security\Core\User\UserProviderInterface;
@@ -23,6 +24,7 @@ class UserProvider extends BaseClass
     public $additional_function;
     protected $em;
     public $cityRepository;
+    public $countryRepository;
 
     /**
      * Constructor.
@@ -30,12 +32,14 @@ class UserProvider extends BaseClass
      * @param UserManagerInterface $userManager FOSUB user provider.
      * @param array                $properties  Property mapping.
      */
-    public function __construct(UserManagerInterface $userManager, $requestStack, $additional_function, EntityManager $em, $cityRepository, array $properties)
+    public function __construct(
+        UserManagerInterface $userManager, $requestStack, $additional_function, EntityManager $em, $cityRepository, $countryRepository, array $properties)
     {
         $this->requestStack = $requestStack;
         $this->additional_function = $additional_function;
         $this->em = $em;
         $this->cityRepository = $cityRepository;
+        $this->countryRepository = $countryRepository;
         $this->userManager = $userManager;
         $this->properties  = array_merge($this->properties, $properties);
         $this->accessor    = PropertyAccess::createPropertyAccessor();
@@ -98,6 +102,7 @@ class UserProvider extends BaseClass
         $record_country = $record->country->name;
 
         $city = $this ->addCityAction($get_record_city);
+        $country = $this ->addCountryAction($record_country);
 //        dump($record_country, $get_record_city);exit;
 
 //        dump($ip, $ipr, $ips);exit;
@@ -123,7 +128,7 @@ class UserProvider extends BaseClass
 
                 $serviceProvider = $service."Provider";
 
-                $user = $this->$serviceProvider->setUserData($user, $response, $record_country, $city);
+                $user = $this->$serviceProvider->setUserData($user, $response, $country, $city);
 
                 $this->userManager->updateUser($user);
 
@@ -167,14 +172,12 @@ class UserProvider extends BaseClass
 
     public function addCityAction($city)
     {
-//        $em = $this->getDoctrine()->getManager();
         $cities = $this->cityRepository->findOneByCity($city);
 
         if (empty($cities)) {
             $cities = new Cities();
             $cities->setCity($city);
-//            $em->persist($cities);
-//            $em->flush();
+
             $this->em->persist($cities);
             $this->em->flush();
 
@@ -185,4 +188,21 @@ class UserProvider extends BaseClass
 
     }
 
+    public function addCountryAction($country)
+    {
+        $countrys = $this->countryRepository->findOneByCountry($country);
+
+        if (empty($cities)) {
+            $countrys = new Country();
+            $countrys->setCountry($country);
+
+            $this->em->persist($countrys);
+            $this->em->flush();
+
+            return $countrys;
+        } else {
+            return $countrys;
+        }
+
+    }
 }
