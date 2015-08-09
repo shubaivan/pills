@@ -1,0 +1,88 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}PillsBundle:Post:index{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Post:index page</h1>
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+
+        <h1 class="page-header">
+            Page Heading
+            <small>Secondary Text</small>
+        </h1>
+
+        <!-- First Blog Post -->
+        <ul class="pager">
+            {#<li class="previous">#}
+            {#<a href="#">&larr; Older</a>#}
+            {#</li>#}
+            {#<li class="next">#}
+                {#{{ knp_pagination_render(posts) }}#}
+            {#</li>#}
+        </ul>
+
+        {% for post in category.posts %}
+            <h2>
+                <a href="#">Blog Post {{ post.title }}</a>
+            </h2>
+            <p class="lead">
+                Category:<a href="{{ path('get_posts_for_category', {'slug': post.category.slug}) }}">{{ post.category }}</a>
+            </p>
+
+
+            <p><span class="glyphicon glyphicon-time"></span> {{ post.createdAt.date|date("d.m.Y H:i:s") }}</p>
+            <hr>
+
+            <img src="{% if post.photo %} {{ asset(post.photo) }} {% else %} {{ asset('bundles/pills/images/upload_photo.jpeg') }} {% endif %}" class="img-responsive" alt="">
+
+            <hr>
+            <p>{{ post.text }}.</p>
+            {#<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>#}
+            {% for tags in post.tag %}
+                <a class="btn btn-primary" href="{{ path('get_posts_for_tags', {'slug': tags.hashSlug }) }}">{{ tags.hashTag }} <span class="glyphicon glyphicon-chevron-right"></span></a>
+            {% endfor %}
+
+            <hr>
+        {% else %}
+
+            <h2>
+                <h3>Нет созданых проектов </h3>
+                <img class="img-responsive" src="{{ asset('bundles/pills/images/net-lekarstva.jpg') }}" alt="">
+            </h2>
+
+        {% endfor %}
+
+        <ul class="pager">
+            {#<li class="previous">#}
+            {#<a href="#">&larr; Older</a>#}
+            {#</li>#}
+            {#<li class="next">#}
+                {#{{ knp_pagination_render(posts) }}#}
+            {#</li>#}
+        </ul>
+
+        <!-- Second Blog Post -->
+        {#<h2>#}
+        {#<a href="#">Blog Post Title</a>#}
+        {#</h2>#}
+        {#<p class="lead">#}
+        {#by <a href="index.php">Start Bootstrap</a>#}
+        {#</p>#}
+        {#<p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>#}
+        {#<hr>#}
+        {#<img class="img-responsive" src="http://placehold.it/900x300" alt="">#}
+        {#<hr>#}
+        {#<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>#}
+        {#<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>#}
+
+        {#<hr>#}
+
+    </div>
+    <!-- /.row -->
+
+
+
+
+{% endblock %}

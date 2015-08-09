@@ -1,0 +1,7 @@
+<?php
+
+require __DIR__ . '/base_script.php';
+
+show_run("prod", "app/console cache:clear --env=prod");
+show_run("dev", "app/console cache:clear --env=dev");
+

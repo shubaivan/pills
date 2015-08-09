@@ -29,7 +29,7 @@ class VkontakteProvider
 //        dump($response, $responseArray);exit;
         // Get user data from response with Vkontakte API v5.30
         $userAvatar = $responseArray['response'][0]['photo_200'];
-        $userSkype = $responseArray['response'][0]['skype'];
+//        $userSkype = $responseArray['response'][0]['skype'];
         $userFirstName = $responseArray['response'][0]['first_name'];
         $userLastName = $responseArray['response'][0]['last_name'];
         $userDomain = $responseArray['response'][0]['domain'];
@@ -50,7 +50,7 @@ class VkontakteProvider
         // Prepare new User object before adding to database
         $user
             ->setEnabled(true)
-            ->setSkype($userSkype)
+//            ->setSkype($userSkype)
             ->setUsername($userFirstName.' '.$userLastName)
             ->setFirstName($userFirstName)
             ->setLastName($userLastName)

@@ -64,6 +64,12 @@ class Post
     protected $deletedAt;
 
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    protected $category;
+
 
     /**
      * Get id
@@ -274,5 +280,28 @@ class Post
     public function getDeletedAt()
     {
         return $this->deletedAt;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \PillsBundle\Entity\Category $category
+     * @return Post
+     */
+    public function setCategory(\PillsBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \PillsBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

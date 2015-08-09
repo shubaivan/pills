@@ -27,9 +27,6 @@ class PostController extends Controller
 
         $posts = $em->getRepository('PillsBundle:Post')->findBy([], ['id' => 'DESC']);
 
-//        return array(
-//            "posts" => $posts,
-//        );
         $paginator  = $this->get('knp_paginator');
         $posts = $paginator->paginate(
             $posts,

@@ -65,12 +65,36 @@
     "config": {
         "bin-dir": "bin"
     },
-    "extra": {
-        "symfony-app-dir": "app",
-        "symfony-web-dir": "web",
-        "symfony-assets-install": "relative",
-        "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
-        }
+  "extra": {
+    "heroku": {
+      "framework": "symfony2",
+      "document-root": "web",
+      "php-config": [
+        "date.timezone=Europe/Kiev",
+        "display_errors=off",
+        "short_open_tag=off"
+      ]
+    },
+    "symfony-app-dir": "app",
+    "symfony-web-dir": "web",
+    "symfony-assets-install": "relative",
+    "incenteev-parameters": {
+      "file": "app/config/parameters.yml",
+      "env-map": {
+        "database_host": "DATABASE_HOST",
+        "database_port": "DATABASE_PORT",
+        "database_name": "DATABASE_NAME",
+        "database_user": "DATABASE_USER",
+        "database_password": "DATABASE_PASSWORD",
+        "facebook_app_id": "FACEBOOK_APP_ID",
+        "facebook_app_secret": "FACEBOOK_APP_SECRET",
+        "vkontakte_app_id": "VKONTAKTE_APP_ID",
+        "vkontakte_app_secret": "VKONTAKTE_APP_SECRET",
+        "amazon_s3_bucket_name": "AMAZON_S3_BUCKET_NAME",
+        "amazon_aws_key": "AMAZON_AWS_KEY",
+        "amazon_aws_secret_key": "AMAZON_AWS_SECRET_KEY",
+        "amazon_s3_base_url": "AMAZON_S3_BASE_URL"
+      }
     }
+  }
 }

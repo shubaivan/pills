@@ -21,27 +21,31 @@
         <div class="row">
             <div class="col-lg-6">
                 <ul class="list-unstyled">
-                    <li><a href="#">Category Name</a>
+                    <li><a href="{{ path('get_posts_for_category', {'slug':'Pills'}) }}">Category Pills</a>
                     </li>
-                    <li><a href="#">Category Name</a>
+                    <li><a href="{{ path('get_posts_for_category', {'slug':'Aerosols'}) }}">Category Aerosols</a>
                     </li>
-                    <li><a href="#">Category Name</a>
+                    <li><a href="{{ path('get_posts_for_category', {'slug':'Mixture'}) }}">Category Mixture</a>
                     </li>
-                    <li><a href="#">Category Name</a>
+                    <li><a href="{{ path('get_posts_for_category', {'slug':'Powders'}) }}">Category Powders</a>
                     </li>
                 </ul>
             </div>
             <!-- /.col-lg-6 -->
             <div class="col-lg-6">
                 <ul class="list-unstyled">
-                    <li><a href="#">Category Name</a>
+                    <li><a href="{{ path('get_posts_for_category', {'slug':'Hygiene'}) }}">Category Hygiene</a>
                     </li>
-                    <li><a href="#">Category Name</a>
+                    <li><a href="{{ path('get_posts_for_category', {'slug':'Antibiotics'}) }}">Category Antibiotics</a>
                     </li>
-                    <li><a href="#">Category Name</a>
+                    <li><a href="{{ path('get_posts_for_category', {'slug':'Flu'}) }}">Category Flu</a>
                     </li>
-                    <li><a href="#">Category Name</a>
+                    <li><a href="{{ path('get_posts_for_category', {'slug':'Vitamins'}) }}">Category Vitamins</a>
                     </li>
+                    {#<li><a href="#">Category Name</a>#}
+                    {#</li>#}
+                    {#<li><a href="#">Category Name</a>#}
+                    {#</li>#}
                 </ul>
             </div>
             <!-- /.col-lg-6 -->
@@ -51,8 +55,7 @@
 
     <!-- Side Widget Well -->
     <div class="well">
-        <h4>Side Widget Well</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+        {{ render(controller('PillsBundle:Tag:topTags')) }}
     </div>
 
 </div>

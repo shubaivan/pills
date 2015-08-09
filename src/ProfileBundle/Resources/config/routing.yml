@@ -1,0 +1,35 @@
+profile_homepage:
+    path:     /profile/{slug}
+    defaults: { _controller: ProfileBundle:DeveloperProfile:index }
+
+profile_edit:
+    path:     /profile/{slug}/edit_form
+    defaults: { _controller: ProfileBundle:DeveloperProfile:editForm }
+
+profile_personal_information:
+    path:     /profile/{slug}/personal_information
+    defaults: { _controller: ProfileBundle:DeveloperProfile:personalInformation }
+
+profile_submit_personal_information:
+    path:     /profile/{slug}/personal_information/submit
+    defaults: { _controller: ProfileBundle:DeveloperProfile:submitPersonalInformation }
+    requirements: { _method: post }
+
+profile_professional_skills:
+    path:     /profile/{slug}/professional_skills
+    defaults: { _controller: ProfileBundle:DeveloperProfile:professionalSkills }
+
+profile_submit_professional_skills:
+    path:     /profile/{slug}/professional_skills/submit
+    defaults: { _controller: ProfileBundle:DeveloperProfile:submitProfessionalSkills }
+    requirements: { _method: post }
+
+profile_photo_upload:
+    path:     /profile/{slug}/photo_upload
+    defaults: { _controller: ProfileBundle:DeveloperProfile:photoUpload }
+    requirements: { _method: post }
+
+allcv:
+    path:     /profile/{slug}/cv_upload
+    defaults: { _controller: ProfileBundle:DeveloperProfile:cvUploadAll}
+    requirements: { _method: post }

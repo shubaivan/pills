@@ -1,0 +1,15 @@
+{{ form_errors(AllCv) }}
+{{ form_start(AllCv, {'action': path('allcv', {'slug': developer.slug}), 'method': 'POST'}) }}
+
+<div class="form-group">
+
+    {{ form_label(AllCv.photo) }}
+    {{ form_widget(AllCv.photo) }}
+
+</div>
+
+<div class="margin-top-20">
+    {{ form_widget(AllCv.save, {'attr': {'class': 'btn green-haze'}}) }}
+</div>
+
+{{ form_end(AllCv) }}

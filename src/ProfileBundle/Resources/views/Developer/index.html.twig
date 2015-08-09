@@ -1,0 +1,613 @@
+{% extends "ProfileBundle::layout.html.twig" %}
+
+{% block container %}
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    {% include 'ProfileBundle::sidebar.html.twig' %}
+	<!-- BEGIN CONTENT -->
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			<div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+							<h4 class="modal-title">Modal title</h4>
+						</div>
+						<div class="modal-body">
+							 Widget settings form goes here
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn blue">Save changes</button>
+							<button type="button" class="btn default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- /.modal -->
+			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			<!-- BEGIN STYLE CUSTOMIZER -->
+			<div class="theme-panel hidden-xs hidden-sm hide">
+				<div class="toggler">
+				</div>
+				<div class="toggler-close">
+				</div>
+				<div class="theme-options">
+					<div class="theme-option theme-colors clearfix">
+						<span>
+						THEME COLOR </span>
+						<ul>
+							<li class="color-default current tooltips" data-style="default" data-container="body" data-original-title="Default">
+							</li>
+							<li class="color-darkblue tooltips" data-style="darkblue" data-container="body" data-original-title="Dark Blue">
+							</li>
+							<li class="color-blue tooltips" data-style="blue" data-container="body" data-original-title="Blue">
+							</li>
+							<li class="color-grey tooltips" data-style="grey" data-container="body" data-original-title="Grey">
+							</li>
+							<li class="color-light tooltips" data-style="light" data-container="body" data-original-title="Light">
+							</li>
+							<li class="color-light2 tooltips" data-style="light2" data-container="body" data-html="true" data-original-title="Light 2">
+							</li>
+						</ul>
+					</div>
+					<div class="theme-option">
+						<span>
+						Theme Style </span>
+						<select class="layout-style-option form-control input-sm">
+							<option value="square" selected="selected">Square corners</option>
+							<option value="rounded">Rounded corners</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>
+						Layout </span>
+						<select class="layout-option form-control input-sm">
+							<option value="fluid" selected="selected">Fluid</option>
+							<option value="boxed">Boxed</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>
+						Header </span>
+						<select class="page-header-option form-control input-sm">
+							<option value="fixed" selected="selected">Fixed</option>
+							<option value="default">Default</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>
+						Top Menu Dropdown</span>
+						<select class="page-header-top-dropdown-style-option form-control input-sm">
+							<option value="light" selected="selected">Light</option>
+							<option value="dark">Dark</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>
+						Sidebar Mode</span>
+						<select class="sidebar-option form-control input-sm">
+							<option value="fixed">Fixed</option>
+							<option value="default" selected="selected">Default</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>
+						Sidebar Menu </span>
+						<select class="sidebar-menu-option form-control input-sm">
+							<option value="accordion" selected="selected">Accordion</option>
+							<option value="hover">Hover</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>
+						Sidebar Style </span>
+						<select class="sidebar-style-option form-control input-sm">
+							<option value="default" selected="selected">Default</option>
+							<option value="light">Light</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>
+						Sidebar Position </span>
+						<select class="sidebar-pos-option form-control input-sm">
+							<option value="left" selected="selected">Left</option>
+							<option value="right">Right</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>
+						Footer </span>
+						<select class="page-footer-option form-control input-sm">
+							<option value="fixed">Fixed</option>
+							<option value="default" selected="selected">Default</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<!-- END STYLE CUSTOMIZER -->
+            {% include 'ProfileBundle:Developer:profile_header.html.twig' %}
+
+            <!-- BEGIN PAGE CONTENT-->
+			<div class="row margin-top-20">
+				<div class="col-md-12">
+                {% include 'ProfileBundle:Developer:profile_sidebar.html.twig' %}
+					<!-- BEGIN PROFILE CONTENT -->
+					<div class="profile-content">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="portlet light">
+									<div class="portlet-title tabbable-line">
+										<div class="caption caption-md">
+											<i class="icon-globe theme-font hide"></i>
+											<span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
+										</div>
+										<ul class="nav nav-tabs">
+											{#<li>#}
+												{#<a href="#cv" data-toggle="tab">Upload CV</a>#}
+											{#</li>#}
+											{#<li>#}
+												{#<a href="#professional-skills" data-toggle="tab">Profesional skills</a>#}
+											{#</li>#}
+                                            <li class="active">
+                                                <a href="#personal-information" data-toggle="tab">Personal information</a>
+                                            </li>
+											<li>
+												<a href="#" data-toggle="tab">My Post</a>
+											</li>
+										</ul>
+									</div>
+									<div class="portlet-body">
+										<div class="tab-content">
+											<!-- CHANGE AVATAR TAB -->
+                                            <div class="tab-pane" id="cv">
+                                                <div class="caption caption-md margin-bottom-15">
+                                                    <span class="caption-subject font-green bold uppercase">Upload your CV</span>
+                                                </div>
+                                                {% include 'ProfileBundle:Developer:all_cv.html.twig' %}
+                                                {#{% if developer.cvDirUri %}#}
+                                                    {#<a href="{{ asset(developer.cvDirUri) }}" id="cvLink" target="_blank" >Your link for CV Dir</a>#}
+                                                {#{% endif %}#}
+                                                {#<br>#}
+                                                {#{% if developer.cvUri %}#}
+                                                {#<a href="{{ asset(developer.cvUri) }}" id="cvLink" target="_blank" >Your link for CV Amazon</a>#}
+                                                {#{% endif %}<br>#}
+                                                {#{% if developer.textCv %}#}
+                                                    {#<span class="caption-subject font-green bold uppercase"><pre>{{ asset(developer.textCv) }}</pre></span>#}
+                                                {#{% endif %}#}
+                                            </div>
+											<!-- END CHANGE AVATAR TAB -->
+											<!-- CHANGE PASSWORD TAB -->
+											{#<div class="tab-pane" id="professional-skills">#}
+                                                {#<div class="caption caption-md margin-bottom-15">#}
+                                                    {#<span class="caption-subject font-green bold uppercase">Proffesional skills</span>#}
+                                                {#</div>#}
+                                                {#{% include 'ProfileBundle:Developer:form_professional_skills.html.twig' %}#}
+                                                {#<hr>#}
+												{#<form action="#">#}
+                                                    {#<div class="form-group">#}
+                                                        {#<label class="control-label">Speciality</label>#}
+                                                        {#<select class="bs-select form-control">#}
+                                                            {#<option>Junior</option>#}
+                                                            {#<option>Medium</option>#}
+                                                            {#<option>Senior</option>#}
+                                                        {#</select>#}
+                                                    {#</div>#}
+                                                    {#<div class="form-group">#}
+                                                        {#<select class="bs-select form-control">#}
+                                                            {#<option>Frontend</option>#}
+                                                            {#<option>Backend</option>#}
+                                                        {#</select>#}
+                                                    {#</div>#}
+                                                    {#<div class="form-group">#}
+                                                        {#<select class="form-control input-xlarge select2me" data-placeholder="Select...">#}
+                                                            {#<option value=""></option>#}
+                                                            {#<option value="">Option1</option>#}
+                                                            {#<option value="">Option2</option>#}
+                                                        {#</select>#}
+                                                    {#</div>#}
+                                                    {#<div class="form-group">#}
+                                                        {#<label class="control-label">Professional Skills</label>#}
+                                                        {#<select class="form-control xlarge select2me" data-placeholder="Select Skills">#}
+                                                            {#<option value=""></option>#}
+                                                            {#<option value="">Option1</option>#}
+                                                            {#<option value="">Option2</option>#}
+                                                        {#</select>#}
+                                                    {#</div>#}
+                                                    {#<div class="form-group">#}
+                                                        {#<label class="control-label">English Level</label>#}
+                                                        {#<select class="bs-select form-control">#}
+                                                            {#<option>Beginner</option>#}
+                                                            {#<option>Elementary</option>#}
+                                                            {#<option>Pre-Intermediate</option>#}
+                                                            {#<option>Intermediate</option>#}
+                                                            {#<option>Upper-Intermediate</option>#}
+                                                            {#<option>Advanced</option>#}
+                                                        {#</select>#}
+                                                    {#</div>#}
+                                                    {#<div class="form-group">#}
+                                                        {#<label class="control-label">When you create your first project</label>#}
+                                                        {#<div class="input-group input-medium date date-picker" data-date="10/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">#}
+                                                            {#<input type="text" class="form-control" readonly>#}
+                                                            {#<span class="input-group-btn">#}
+                                                            {#<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>#}
+                                                            {#</span>#}
+                                                        {#</div>#}
+                                                    {#</div>#}
+                                                    {#<div class="form-group">#}
+                                                        {#<label class="control-label">Rate</label>#}
+                                                        {#<div class="input-medium">#}
+                                                            {#<input id="touchspin_demo1" type="text" value="1" name="demo1" class="form-control">#}
+                                                        {#</div>#}
+                                                    {#</div>#}
+												{#</form>#}
+											</div>
+											<!-- END CHANGE PASSWORD TAB -->
+                                            <!-- PERSONAL INFO TAB -->
+                                            <div class="tab-pane active" id="personal-information">
+                                                <div class="caption caption-md margin-bottom-15">
+                                                    <span class="caption-subject font-green bold uppercase">Personal information</span>
+                                                </div>
+                                                {% include 'ProfileBundle:Developer:form_personal_information.html.twig' %}
+                                                {#<hr>#}
+                                                {#<form role="form" action="#">#}
+                                                    {#<div class="form-group">#}
+                                                        {#<label class="control-label">First Name</label>#}
+                                                        {#<input type="text" placeholder="" class="form-control"/>#}
+                                                    {#</div>#}
+                                                    {#<div class="form-group">#}
+                                                        {#<label class="control-label">Last Name</label>#}
+                                                        {#<input type="text" placeholder="" class="form-control"/>#}
+                                                    {#</div>#}
+                                                    {#<div class="form-group">#}
+                                                        {#<label class="control-label">Email</label>#}
+                                                        {#<input type="email" placeholder="" class="form-control"/>#}
+                                                    {#</div>#}
+                                                    {#<div class="form-group">#}
+                                                        {#<label class="control-label">Country</label>#}
+                                                        {#<select name="" id="select2_sample4" class="form-control select2">#}
+                                                            {#<option value="AF">Afghanistan</option>#}
+                                                            {#<option value="AL">Albania</option>#}
+                                                            {#<option value="DZ">Algeria</option>#}
+                                                            {#<option value="AS">American Samoa</option>#}
+                                                            {#<option value="AD">Andorra</option>#}
+                                                            {#<option value="AO">Angola</option>#}
+                                                            {#<option value="AI">Anguilla</option>#}
+                                                            {#<option value="AQ">Antarctica</option>#}
+                                                            {#<option value="AR">Argentina</option>#}
+                                                            {#<option value="AM">Armenia</option>#}
+                                                            {#<option value="AW">Aruba</option>#}
+                                                            {#<option value="AU">Australia</option>#}
+                                                            {#<option value="AT">Austria</option>#}
+                                                            {#<option value="AZ">Azerbaijan</option>#}
+                                                            {#<option value="BS">Bahamas</option>#}
+                                                            {#<option value="BH">Bahrain</option>#}
+                                                            {#<option value="BD">Bangladesh</option>#}
+                                                            {#<option value="BB">Barbados</option>#}
+                                                            {#<option value="BY">Belarus</option>#}
+                                                            {#<option value="BE">Belgium</option>#}
+                                                            {#<option value="BZ">Belize</option>#}
+                                                            {#<option value="BJ">Benin</option>#}
+                                                            {#<option value="BM">Bermuda</option>#}
+                                                            {#<option value="BT">Bhutan</option>#}
+                                                            {#<option value="BO">Bolivia</option>#}
+                                                            {#<option value="BA">Bosnia and Herzegowina</option>#}
+                                                            {#<option value="BW">Botswana</option>#}
+                                                            {#<option value="BV">Bouvet Island</option>#}
+                                                            {#<option value="BR">Brazil</option>#}
+                                                            {#<option value="IO">British Indian Ocean Territory</option>#}
+                                                            {#<option value="BN">Brunei Darussalam</option>#}
+                                                            {#<option value="BG">Bulgaria</option>#}
+                                                            {#<option value="BF">Burkina Faso</option>#}
+                                                            {#<option value="BI">Burundi</option>#}
+                                                            {#<option value="KH">Cambodia</option>#}
+                                                            {#<option value="CM">Cameroon</option>#}
+                                                            {#<option value="CA">Canada</option>#}
+                                                            {#<option value="CV">Cape Verde</option>#}
+                                                            {#<option value="KY">Cayman Islands</option>#}
+                                                            {#<option value="CF">Central African Republic</option>#}
+                                                            {#<option value="TD">Chad</option>#}
+                                                            {#<option value="CL">Chile</option>#}
+                                                            {#<option value="CN">China</option>#}
+                                                            {#<option value="CX">Christmas Island</option>#}
+                                                            {#<option value="CC">Cocos (Keeling) Islands</option>#}
+                                                            {#<option value="CO">Colombia</option>#}
+                                                            {#<option value="KM">Comoros</option>#}
+                                                            {#<option value="CG">Congo</option>#}
+                                                            {#<option value="CD">Congo, the Democratic Republic of the</option>#}
+                                                            {#<option value="CK">Cook Islands</option>#}
+                                                            {#<option value="CR">Costa Rica</option>#}
+                                                            {#<option value="CI">Cote d'Ivoire</option>#}
+                                                            {#<option value="HR">Croatia (Hrvatska)</option>#}
+                                                            {#<option value="CU">Cuba</option>#}
+                                                            {#<option value="CY">Cyprus</option>#}
+                                                            {#<option value="CZ">Czech Republic</option>#}
+                                                            {#<option value="DK">Denmark</option>#}
+                                                            {#<option value="DJ">Djibouti</option>#}
+                                                            {#<option value="DM">Dominica</option>#}
+                                                            {#<option value="DO">Dominican Republic</option>#}
+                                                            {#<option value="EC">Ecuador</option>#}
+                                                            {#<option value="EG">Egypt</option>#}
+                                                            {#<option value="SV">El Salvador</option>#}
+                                                            {#<option value="GQ">Equatorial Guinea</option>#}
+                                                            {#<option value="ER">Eritrea</option>#}
+                                                            {#<option value="EE">Estonia</option>#}
+                                                            {#<option value="ET">Ethiopia</option>#}
+                                                            {#<option value="FK">Falkland Islands (Malvinas)</option>#}
+                                                            {#<option value="FO">Faroe Islands</option>#}
+                                                            {#<option value="FJ">Fiji</option>#}
+                                                            {#<option value="FI">Finland</option>#}
+                                                            {#<option value="FR">France</option>#}
+                                                            {#<option value="GF">French Guiana</option>#}
+                                                            {#<option value="PF">French Polynesia</option>#}
+                                                            {#<option value="TF">French Southern Territories</option>#}
+                                                            {#<option value="GA">Gabon</option>#}
+                                                            {#<option value="GM">Gambia</option>#}
+                                                            {#<option value="GE">Georgia</option>#}
+                                                            {#<option value="DE">Germany</option>#}
+                                                            {#<option value="GH">Ghana</option>#}
+                                                            {#<option value="GI">Gibraltar</option>#}
+                                                            {#<option value="GR">Greece</option>#}
+                                                            {#<option value="GL">Greenland</option>#}
+                                                            {#<option value="GD">Grenada</option>#}
+                                                            {#<option value="GP">Guadeloupe</option>#}
+                                                            {#<option value="GU">Guam</option>#}
+                                                            {#<option value="GT">Guatemala</option>#}
+                                                            {#<option value="GN">Guinea</option>#}
+                                                            {#<option value="GW">Guinea-Bissau</option>#}
+                                                            {#<option value="GY">Guyana</option>#}
+                                                            {#<option value="HT">Haiti</option>#}
+                                                            {#<option value="HM">Heard and Mc Donald Islands</option>#}
+                                                            {#<option value="VA">Holy See (Vatican City State)</option>#}
+                                                            {#<option value="HN">Honduras</option>#}
+                                                            {#<option value="HK">Hong Kong</option>#}
+                                                            {#<option value="HU">Hungary</option>#}
+                                                            {#<option value="IS">Iceland</option>#}
+                                                            {#<option value="IN">India</option>#}
+                                                            {#<option value="ID">Indonesia</option>#}
+                                                            {#<option value="IR">Iran (Islamic Republic of)</option>#}
+                                                            {#<option value="IQ">Iraq</option>#}
+                                                            {#<option value="IE">Ireland</option>#}
+                                                            {#<option value="IL">Israel</option>#}
+                                                            {#<option value="IT">Italy</option>#}
+                                                            {#<option value="JM">Jamaica</option>#}
+                                                            {#<option value="JP">Japan</option>#}
+                                                            {#<option value="JO">Jordan</option>#}
+                                                            {#<option value="KZ">Kazakhstan</option>#}
+                                                            {#<option value="KE">Kenya</option>#}
+                                                            {#<option value="KI">Kiribati</option>#}
+                                                            {#<option value="KP">Korea, Democratic People's Republic of</option>#}
+                                                            {#<option value="KR">Korea, Republic of</option>#}
+                                                            {#<option value="KW">Kuwait</option>#}
+                                                            {#<option value="KG">Kyrgyzstan</option>#}
+                                                            {#<option value="LA">Lao People's Democratic Republic</option>#}
+                                                            {#<option value="LV">Latvia</option>#}
+                                                            {#<option value="LB">Lebanon</option>#}
+                                                            {#<option value="LS">Lesotho</option>#}
+                                                            {#<option value="LR">Liberia</option>#}
+                                                            {#<option value="LY">Libyan Arab Jamahiriya</option>#}
+                                                            {#<option value="LI">Liechtenstein</option>#}
+                                                            {#<option value="LT">Lithuania</option>#}
+                                                            {#<option value="LU">Luxembourg</option>#}
+                                                            {#<option value="MO">Macau</option>#}
+                                                            {#<option value="MK">Macedonia, The Former Yugoslav Republic of</option>#}
+                                                            {#<option value="MG">Madagascar</option>#}
+                                                            {#<option value="MW">Malawi</option>#}
+                                                            {#<option value="MY">Malaysia</option>#}
+                                                            {#<option value="MV">Maldives</option>#}
+                                                            {#<option value="ML">Mali</option>#}
+                                                            {#<option value="MT">Malta</option>#}
+                                                            {#<option value="MH">Marshall Islands</option>#}
+                                                            {#<option value="MQ">Martinique</option>#}
+                                                            {#<option value="MR">Mauritania</option>#}
+                                                            {#<option value="MU">Mauritius</option>#}
+                                                            {#<option value="YT">Mayotte</option>#}
+                                                            {#<option value="MX">Mexico</option>#}
+                                                            {#<option value="FM">Micronesia, Federated States of</option>#}
+                                                            {#<option value="MD">Moldova, Republic of</option>#}
+                                                            {#<option value="MC">Monaco</option>#}
+                                                            {#<option value="MN">Mongolia</option>#}
+                                                            {#<option value="MS">Montserrat</option>#}
+                                                            {#<option value="MA">Morocco</option>#}
+                                                            {#<option value="MZ">Mozambique</option>#}
+                                                            {#<option value="MM">Myanmar</option>#}
+                                                            {#<option value="NA">Namibia</option>#}
+                                                            {#<option value="NR">Nauru</option>#}
+                                                            {#<option value="NP">Nepal</option>#}
+                                                            {#<option value="NL">Netherlands</option>#}
+                                                            {#<option value="AN">Netherlands Antilles</option>#}
+                                                            {#<option value="NC">New Caledonia</option>#}
+                                                            {#<option value="NZ">New Zealand</option>#}
+                                                            {#<option value="NI">Nicaragua</option>#}
+                                                            {#<option value="NE">Niger</option>#}
+                                                            {#<option value="NG">Nigeria</option>#}
+                                                            {#<option value="NU">Niue</option>#}
+                                                            {#<option value="NF">Norfolk Island</option>#}
+                                                            {#<option value="MP">Northern Mariana Islands</option>#}
+                                                            {#<option value="NO">Norway</option>#}
+                                                            {#<option value="OM">Oman</option>#}
+                                                            {#<option value="PK">Pakistan</option>#}
+                                                            {#<option value="PW">Palau</option>#}
+                                                            {#<option value="PA">Panama</option>#}
+                                                            {#<option value="PG">Papua New Guinea</option>#}
+                                                            {#<option value="PY">Paraguay</option>#}
+                                                            {#<option value="PE">Peru</option>#}
+                                                            {#<option value="PH">Philippines</option>#}
+                                                            {#<option value="PN">Pitcairn</option>#}
+                                                            {#<option value="PL">Poland</option>#}
+                                                            {#<option value="PT">Portugal</option>#}
+                                                            {#<option value="PR">Puerto Rico</option>#}
+                                                            {#<option value="QA">Qatar</option>#}
+                                                            {#<option value="RE">Reunion</option>#}
+                                                            {#<option value="RO">Romania</option>#}
+                                                            {#<option value="RU">Russian Federation</option>#}
+                                                            {#<option value="RW">Rwanda</option>#}
+                                                            {#<option value="KN">Saint Kitts and Nevis</option>#}
+                                                            {#<option value="LC">Saint LUCIA</option>#}
+                                                            {#<option value="VC">Saint Vincent and the Grenadines</option>#}
+                                                            {#<option value="WS">Samoa</option>#}
+                                                            {#<option value="SM">San Marino</option>#}
+                                                            {#<option value="ST">Sao Tome and Principe</option>#}
+                                                            {#<option value="SA">Saudi Arabia</option>#}
+                                                            {#<option value="SN">Senegal</option>#}
+                                                            {#<option value="SC">Seychelles</option>#}
+                                                            {#<option value="SL">Sierra Leone</option>#}
+                                                            {#<option value="SG">Singapore</option>#}
+                                                            {#<option value="SK">Slovakia (Slovak Republic)</option>#}
+                                                            {#<option value="SI">Slovenia</option>#}
+                                                            {#<option value="SB">Solomon Islands</option>#}
+                                                            {#<option value="SO">Somalia</option>#}
+                                                            {#<option value="ZA">South Africa</option>#}
+                                                            {#<option value="GS">South Georgia and the South Sandwich Islands</option>#}
+                                                            {#<option value="ES">Spain</option>#}
+                                                            {#<option value="LK">Sri Lanka</option>#}
+                                                            {#<option value="SH">St. Helena</option>#}
+                                                            {#<option value="PM">St. Pierre and Miquelon</option>#}
+                                                            {#<option value="SD">Sudan</option>#}
+                                                            {#<option value="SR">Suriname</option>#}
+                                                            {#<option value="SJ">Svalbard and Jan Mayen Islands</option>#}
+                                                            {#<option value="SZ">Swaziland</option>#}
+                                                            {#<option value="SE">Sweden</option>#}
+                                                            {#<option value="CH">Switzerland</option>#}
+                                                            {#<option value="SY">Syrian Arab Republic</option>#}
+                                                            {#<option value="TW">Taiwan, Province of China</option>#}
+                                                            {#<option value="TJ">Tajikistan</option>#}
+                                                            {#<option value="TZ">Tanzania, United Republic of</option>#}
+                                                            {#<option value="TH">Thailand</option>#}
+                                                            {#<option value="TG">Togo</option>#}
+                                                            {#<option value="TK">Tokelau</option>#}
+                                                            {#<option value="TO">Tonga</option>#}
+                                                            {#<option value="TT">Trinidad and Tobago</option>#}
+                                                            {#<option value="TN">Tunisia</option>#}
+                                                            {#<option value="TR">Turkey</option>#}
+                                                            {#<option value="TM">Turkmenistan</option>#}
+                                                            {#<option value="TC">Turks and Caicos Islands</option>#}
+                                                            {#<option value="TV">Tuvalu</option>#}
+                                                            {#<option value="UG">Uganda</option>#}
+                                                            {#<option value="UA">Ukraine</option>#}
+                                                            {#<option value="AE">United Arab Emirates</option>#}
+                                                            {#<option value="GB">United Kingdom</option>#}
+                                                            {#<option value="US">United States</option>#}
+                                                            {#<option value="UM">United States Minor Outlying Islands</option>#}
+                                                            {#<option value="UY">Uruguay</option>#}
+                                                            {#<option value="UZ">Uzbekistan</option>#}
+                                                            {#<option value="VU">Vanuatu</option>#}
+                                                            {#<option value="VE">Venezuela</option>#}
+                                                            {#<option value="VN">Viet Nam</option>#}
+                                                            {#<option value="VG">Virgin Islands (British)</option>#}
+                                                            {#<option value="VI">Virgin Islands (U.S.)</option>#}
+                                                            {#<option value="WF">Wallis and Futuna Islands</option>#}
+                                                            {#<option value="EH">Western Sahara</option>#}
+                                                            {#<option value="YE">Yemen</option>#}
+                                                            {#<option value="ZM">Zambia</option>#}
+                                                            {#<option value="ZW">Zimbabwe</option>#}
+                                                        {#</select>#}
+                                                    {#</div>#}
+                                                    {#<div class="form-group">#}
+                                                        {#<label class="control-label">Skype</label>#}
+                                                        {#<input type="text" placeholder="" class="form-control"/>#}
+                                                    {#</div>#}
+                                                    {#<div class="form-group">#}
+                                                        {#<label class="control-label">Phone</label>#}
+                                                        {#<input class="form-control" data-inputmask="'alias': 'date'" id="mask_phone" type="text"/>#}
+                                                        {#<span class="help-block">#}
+                                                        {#(999) 999-9999 </span>#}
+                                                    {#</div>#}
+                                                    {#<div class="form-group">#}
+                                                        {#<label class="control-label">Image download</label>#}
+                                                        {#<div class="fileinput-new" data-provides="fileinput">#}
+                                                            {#<div class="input-group input-large">#}
+                                                                {#<div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">#}
+                                                                    {#<i class="fa fa-file fileinput-exists"></i>&nbsp; <span class="fileinput-filename">#}
+                                                                    {#</span>#}
+                                                                {#</div>#}
+                                                                {#<span class="input-group-addon btn default btn-file">#}
+                                                                {#<span class="fileinput-new">#}
+                                                                {#Select file </span>#}
+                                                                {#<span class="fileinput-exists">#}
+                                                                {#Change </span>#}
+                                                                {#<input name="..." type="file">#}
+                                                                {#</span>#}
+                                                                {#<a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput">#}
+                                                                    {#Remove </a>#}
+                                                            {#</div>#}
+                                                        {#</div>#}
+                                                    {#</div>#}
+                                                {#</form>#}
+                                            </div>
+                                            <!-- END PERSONAL INFO TAB -->
+											<!-- PRIVACY SETTINGS TAB -->
+											<div class="tab-pane" id="tab_1_4">
+												<form action="#">
+													<table class="table table-light table-hover">
+													<tr>
+														<td>
+															 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus..
+														</td>
+														<td>
+															<label class="uniform-inline">
+															<input type="radio" name="optionsRadios1" value="option1"/>
+															Yes </label>
+															<label class="uniform-inline">
+															<input type="radio" name="optionsRadios1" value="option2" checked/>
+															No </label>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															 Enim eiusmod high life accusamus terry richardson ad squid wolf moon
+														</td>
+														<td>
+															<label class="uniform-inline">
+															<input type="checkbox" value=""/> Yes </label>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															 Enim eiusmod high life accusamus terry richardson ad squid wolf moon
+														</td>
+														<td>
+															<label class="uniform-inline">
+															<input type="checkbox" value=""/> Yes </label>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															 Enim eiusmod high life accusamus terry richardson ad squid wolf moon
+														</td>
+														<td>
+															<label class="uniform-inline">
+															<input type="checkbox" value=""/> Yes </label>
+														</td>
+													</tr>
+													</table>
+													<!--end profile-settings-->
+													<div class="margin-top-10">
+														<a href="javascript:;" class="btn green-haze">
+														Save Changes </a>
+														<a href="javascript:;" class="btn default">
+														Cancel </a>
+													</div>
+												</form>
+											</div>
+											<!-- END PRIVACY SETTINGS TAB -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END PROFILE CONTENT -->
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- END CONTENT -->
+    {% include 'ProfileBundle::quick_sidebar.html.twig' %}
+</div>
+<!-- END CONTAINER -->
+{% endblock %}

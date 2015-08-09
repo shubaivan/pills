@@ -12,4 +12,25 @@ use Doctrine\ORM\EntityRepository;
  */
 class TagRepository extends EntityRepository
 {
+
+    public function findTopTags()
+    {
+        $tags = $this->getEntityManager()->getRepository('PillsBundle:Tag')
+            ->createQueryBuilder('t')
+            ->groupBy('t.hashTag')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+
+        usort($tags, function ($a, $b) {
+            if (COUNT($a->getPost()) == COUNT($b->getPost())) {
+                return 0;
+            }
+
+            return (COUNT($a->getPost()) > COUNT($b->getPost())) ? -1 : 1;
+        });
+
+        return $tags;
+    }
+
 }

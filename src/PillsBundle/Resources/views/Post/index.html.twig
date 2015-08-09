@@ -27,26 +27,29 @@
     <h2>
         <a href="#">Blog Post {{ post.title }}</a>
     </h2>
-    {#<p class="lead">#}
-        {#by <a href="index.php">Start Bootstrap</a>#}
-    {#</p>#}
+    <p class="lead">
+        Category:<a href="{{ path('get_posts_for_category', {'slug': post.category.slug}) }}">{{ post.category }}</a>
+    </p>
 
 
     <p><span class="glyphicon glyphicon-time"></span> {{ post.createdAt.date|date("d.m.Y H:i:s") }}</p>
     <hr>
 
-        <img src="{% if post.photo %} {{ asset(post.photo) }} {% else %} {{ asset('bundles/pills/images/upload_photo.jpeg') }} {% endif %}" class="img-responsive" alt="">
+        <img src="{% if post.photo %} {{ asset(post.photo) }} {% else %} {{ "https://s3-eu-west-1.amazonaws.com/aog-db-files-stage/2015/07/25/upload_photo.jpeg" }} {% endif %}" class="img-responsive" alt="">
 
     <hr>
     <p>{{ post.text }}.</p>
     {#<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>#}
+        {% for tags in post.tag %}
+        <a class="btn btn-primary" href="{{ path('get_posts_for_tags', {'slug': tags.hashSlug }) }}">{{ tags.hashTag }} <span class="glyphicon glyphicon-chevron-right"></span></a>
+        {% endfor %}
 
     <hr>
     {% else %}
 
         <h2>
             <h3>Нет созданых проектов </h3>
-            <img class="img-responsive" src="{{ asset('bundles/pills/images/net-lekarstva.jpg') }}" alt="">
+            <img class="img-responsive" src="https://s3-eu-west-1.amazonaws.com/aog-db-files-stage/2015/07/25/net-lekarstva.jpg" alt="">
         </h2>
 
     {% endfor %}
