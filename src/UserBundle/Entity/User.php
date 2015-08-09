@@ -111,6 +111,11 @@ class User extends BaseUser
     protected $post;
 
     /**
+     * @ORM\OneToMany(targetEntity="\PillsBundle\Entity\Get", mappedBy="author",  cascade={"persist", "remove"})
+     */
+    protected $get;
+
+    /**
      * @ORM\Column(type="string", nullable=true)
      */
     protected $socialNetworkUrl;
@@ -852,5 +857,38 @@ class User extends BaseUser
     public function getRate()
     {
         return $this->rate;
+    }
+
+    /**
+     * Add get
+     *
+     * @param \PillsBundle\Entity\Get $get
+     * @return User
+     */
+    public function addGet(\PillsBundle\Entity\Get $get)
+    {
+        $this->get[] = $get;
+
+        return $this;
+    }
+
+    /**
+     * Remove get
+     *
+     * @param \PillsBundle\Entity\Get $get
+     */
+    public function removeGet(\PillsBundle\Entity\Get $get)
+    {
+        $this->get->removeElement($get);
+    }
+
+    /**
+     * Get get
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGet()
+    {
+        return $this->get;
     }
 }

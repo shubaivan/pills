@@ -30,6 +30,11 @@ class Category
     protected $posts;
 
     /**
+     * @ORM\OneToMany(targetEntity="Get", mappedBy="category")
+     */
+    protected $get;
+
+    /**
      * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(type="string", length=128, unique=true)
      */
@@ -134,5 +139,38 @@ class Category
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Add get
+     *
+     * @param \PillsBundle\Entity\Get $get
+     * @return Category
+     */
+    public function addGet(\PillsBundle\Entity\Get $get)
+    {
+        $this->get[] = $get;
+
+        return $this;
+    }
+
+    /**
+     * Remove get
+     *
+     * @param \PillsBundle\Entity\Get $get
+     */
+    public function removeGet(\PillsBundle\Entity\Get $get)
+    {
+        $this->get->removeElement($get);
+    }
+
+    /**
+     * Get get
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGet()
+    {
+        return $this->get;
     }
 }

@@ -35,6 +35,12 @@ class Tag
     protected $post;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Get", inversedBy="tag")
+     * @ORM\JoinColumn(name="get_id", referencedColumnName="id")
+     */
+    protected $get;
+
+    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", name="createdAt")
      */
@@ -190,5 +196,38 @@ class Tag
     public function getDeletedAt()
     {
         return $this->deletedAt;
+    }
+
+    /**
+     * Add get
+     *
+     * @param \PillsBundle\Entity\Get $get
+     * @return Tag
+     */
+    public function addGet(\PillsBundle\Entity\Get $get)
+    {
+        $this->get[] = $get;
+
+        return $this;
+    }
+
+    /**
+     * Remove get
+     *
+     * @param \PillsBundle\Entity\Get $get
+     */
+    public function removeGet(\PillsBundle\Entity\Get $get)
+    {
+        $this->get->removeElement($get);
+    }
+
+    /**
+     * Get get
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGet()
+    {
+        return $this->get;
     }
 }
