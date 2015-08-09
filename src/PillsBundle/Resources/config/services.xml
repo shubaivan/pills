@@ -18,6 +18,24 @@
         <service id="twig.pills_extension" class="PillsBundle\Twig\PillsBundleExtension">
             <tag name="twig.extension" />
         </service>
+
+        <service id="profile.additional_function"
+                 class="PillsBundle\Helper\AdditionalFunction">
+            <argument type="service" id="templating" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+
+            <call method="setRootDir">
+                <argument>%kernel.root_dir%</argument>
+            </call>
+        </service>
+
+        <service id="pills.city.repository"
+                 class="PillsBundle\Entity\Repository\Cities"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository">
+            <argument>PillsBundle:Cities</argument>
+        </service>
+
     </services>
 
 </container>
