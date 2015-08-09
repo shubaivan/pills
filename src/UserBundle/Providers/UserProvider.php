@@ -2,6 +2,7 @@
 
 namespace UserBundle\Providers;
 
+use Buzz\Message\Request;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider as BaseClass;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -46,6 +47,11 @@ class UserProvider extends BaseClass
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
+//        $ipserver = $this->get('request')->server->get("REMOTE_ADDR");
+        $ip = $_SERVER['REMOTE_ADDR'];
+        dump($ip);exit;
+//        $this->container->get('request_stack')->getCurrentRequest()->getClientIp();
+//        $ip = $container->get('request')->getClientIp();
         $username = $response->getUsername();
         $email = $response->getEmail();
 
