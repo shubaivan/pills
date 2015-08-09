@@ -46,6 +46,7 @@ UserBundle\Entity\User:
     facebookId: <numberBetween(1, 100000)>
     post: 2x @post*
     getMed: 2x @getMed*
+
     telephone: <phoneNumber()>
     skype: skypeName
     email: <email()>
