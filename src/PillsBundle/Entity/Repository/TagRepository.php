@@ -66,4 +66,14 @@ class TagRepository extends EntityRepository
 
         return $results;
     }
+
+    public function getAllHashTags()
+    {
+        return $this->getEntityManager()
+            ->getRepository('PillsBundle:Tag')
+            ->createQueryBuilder('t')
+            ->select('t.hashTag')
+            ->getQuery()
+            ->getResult();
+    }
 }

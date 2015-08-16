@@ -33,6 +33,24 @@ class PostRepository extends EntityRepository
         return $results;
     }
 
+    public function getPostByType($type)
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder('p');
+
+        $qb ->select('p')
+            ->from('PillsBundle:Post', 'p')
+            ->join('p.type', 'c')
+            ->where('c = :type')
+            ->setParameter('type', $type)
+            ->getQuery();
+
+//        return $arrayResults;
+        $query = $qb->getQuery();
+        $results = $query->getResult();
+
+        return $results;
+    }
+
     public function getPostByCategory($category)
     {
         $qb = $this->getEntityManager()->createQueryBuilder('p');
