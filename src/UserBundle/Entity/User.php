@@ -120,11 +120,6 @@ class User extends BaseUser
     protected $post;
 
     /**
-     * @ORM\OneToMany(targetEntity="\PillsBundle\Entity\GetMed", mappedBy="author",  cascade={"persist", "remove"})
-     */
-    protected $getMed;
-
-    /**
      * @ORM\Column(type="string", nullable=true)
      */
     protected $socialNetworkUrl;
@@ -845,38 +840,6 @@ class User extends BaseUser
         return $this->rate;
     }
 
-    /**
-     * Add getMed
-     *
-     * @param \PillsBundle\Entity\GetMed $getMed
-     * @return User
-     */
-    public function addGetMed(\PillsBundle\Entity\GetMed $getMed)
-    {
-        $this->getMed[] = $getMed;
-
-        return $this;
-    }
-
-    /**
-     * Remove getMed
-     *
-     * @param \PillsBundle\Entity\GetMed $getMed
-     */
-    public function removeGetMed(\PillsBundle\Entity\GetMed $getMed)
-    {
-        $this->getMed->removeElement($getMed);
-    }
-
-    /**
-     * Get getMed
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getGetMed()
-    {
-        return $this->getMed;
-    }
 
     /**
      * Set city
