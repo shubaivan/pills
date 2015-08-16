@@ -192,7 +192,7 @@ class UserProvider extends BaseClass
     {
         $countrys = $this->countryRepository->findOneByCountry($country);
 
-        if (empty($cities)) {
+        if (empty($countrys)) {
             $countrys = new Country();
             $countrys->setCountry($country);
 
