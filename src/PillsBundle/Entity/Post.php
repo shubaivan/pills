@@ -24,11 +24,6 @@ class Post
     private $title;
 
     /**
-     * @ORM\Column(type="text")
-     */
-    protected $text;
-
-    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", name="createdAt")
      */
@@ -70,6 +65,28 @@ class Post
      */
     protected $category;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Type", inversedBy="post")
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
+     */
+    protected $type = NULL;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Country", inversedBy="post")
+     * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
+     */
+    protected $country = NULL;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Cities", inversedBy="post")
+     * @ORM\JoinColumn(name="cities_id", referencedColumnName="id")
+     */
+    protected $city = NULL;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $description;
 
     /**
      * Get id
@@ -102,29 +119,6 @@ class Post
     public function getTitle()
     {
         return $this->title;
-    }
-
-    /**
-     * Set text
-     *
-     * @param string $text
-     * @return Post
-     */
-    public function setText($text)
-    {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    /**
-     * Get text
-     *
-     * @return string 
-     */
-    public function getText()
-    {
-        return $this->text;
     }
 
     /**
@@ -205,6 +199,7 @@ class Post
     public function setAuthor(\UserBundle\Entity\User $author = null)
     {
         $this->author = $author;
+        $author->addPost($this);
 
         return $this;
     }
@@ -303,5 +298,97 @@ class Post
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set type
+     *
+     * @param \PillsBundle\Entity\Type $type
+     * @return Post
+     */
+    public function setType(\PillsBundle\Entity\Type $type = null)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \PillsBundle\Entity\Type 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Post
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set country
+     *
+     * @param \PillsBundle\Entity\Country $country
+     * @return Post
+     */
+    public function setCountry(\PillsBundle\Entity\Country $country = null)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return \PillsBundle\Entity\Country 
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set city
+     *
+     * @param \PillsBundle\Entity\Cities $city
+     * @return Post
+     */
+    public function setCity(\PillsBundle\Entity\Cities $city = null)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return \PillsBundle\Entity\Cities 
+     */
+    public function getCity()
+    {
+        return $this->city;
     }
 }
