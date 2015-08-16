@@ -1,0 +1,29 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Post:addPost{% endblock %}
+
+    {% block body %}
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        <div>
+            {{ form_label(form.title) }} <br>
+            {{ form_widget(form.title) }}
+        </div>
+        <div>
+            {{ form_label(form.description) }} <br>
+            {{ form_widget(form.description) }}
+        </div>
+        <div>
+             {{ form_label(form.photo) }}
+             {{ form_widget(form.photo) }}
+        <div id="clear"></div>
+        </div>
+
+        {{ form_end(form) }}
+        </div>
+
+    {% endblock %}
