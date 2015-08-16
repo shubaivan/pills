@@ -30,11 +30,6 @@ class Category
     protected $posts;
 
     /**
-     * @ORM\OneToMany(targetEntity="GetMed", mappedBy="category")
-     */
-    protected $getMed;
-
-    /**
      * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(type="string", length=128, unique=true)
      */
@@ -45,7 +40,6 @@ class Category
     public function __construct()
     {
         $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->getMed = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -135,39 +129,6 @@ class Category
     public function getPosts()
     {
         return $this->posts;
-    }
-
-    /**
-     * Add getMed
-     *
-     * @param \PillsBundle\Entity\GetMed $getMed
-     * @return Category
-     */
-    public function addGetMed(\PillsBundle\Entity\GetMed $getMed)
-    {
-        $this->getMed[] = $getMed;
-
-        return $this;
-    }
-
-    /**
-     * Remove getMed
-     *
-     * @param \PillsBundle\Entity\GetMed $getMed
-     */
-    public function removeGetMed(\PillsBundle\Entity\GetMed $getMed)
-    {
-        $this->getMed->removeElement($getMed);
-    }
-
-    /**
-     * Get getMed
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getGetMed()
-    {
-        return $this->getMed;
     }
 
     public function __toString()
