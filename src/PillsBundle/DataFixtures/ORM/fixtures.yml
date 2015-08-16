@@ -1,16 +1,10 @@
 PillsBundle\Entity\Post:
   post{1..60}:
     title: <word()>
-    text: <realText()>
+    description: <realText()>
     author: @user*
     category: @category*
-
-PillsBundle\Entity\GetMed:
-  getMed{1..60}:
-    title: <word()>
-    text: <realText()>
-    author: @user*
-    category: @category*
+    type: @type*
 
 PillsBundle\Entity\Category:
   category1:
@@ -35,18 +29,21 @@ PillsBundle\Entity\Tag:
   tag{1..50}:
     hashTag: <word()>
     post: 5x @post*
-    getMed: 5x @getMed*
+
+PillsBundle\Entity\Type:
+  type1:
+    name: I want share
+  type2:
+    name: I need help
 
 UserBundle\Entity\User:
-  users{1..60}:
+  users{1..50}:
     firstName: <firstName()>
     lastName: <lastName()>
     username: <firstNameMale()>
     vkontakteId: <numberBetween(1, 100000)>
     facebookId: <numberBetween(1, 100000)>
     post: 2x @post*
-    getMed: 2x @getMed*
-
     telephone: <phoneNumber()>
     skype: skypeName
     email: <email()>
