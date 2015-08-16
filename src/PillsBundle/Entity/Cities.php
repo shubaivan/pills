@@ -29,6 +29,11 @@ class Cities
     private $city;
 
     /**
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="city")
+     */
+    protected $post;
+
+    /**
      * Get id
      *
      * @return integer
@@ -64,5 +69,45 @@ class Cities
     public function __toString()
     {
         return $this->city;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->post = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add post
+     *
+     * @param \PillsBundle\Entity\Post $post
+     * @return Cities
+     */
+    public function addPost(\PillsBundle\Entity\Post $post)
+    {
+        $this->post[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param \PillsBundle\Entity\Post $post
+     */
+    public function removePost(\PillsBundle\Entity\Post $post)
+    {
+        $this->post->removeElement($post);
+    }
+
+    /**
+     * Get post
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPost()
+    {
+        return $this->post;
     }
 }
