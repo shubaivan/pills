@@ -33,9 +33,9 @@
                     <a href="{{ path('fos_user_security_logout') }}">Logout</a>
                 </li>
 
-                {#<li>#}
-                {#<a href="{{ path('user_update_profile') }}">User profile</a>#}
-                {#</li>#}
+                <li>
+                    <a href="{{ path('add_posts_by_type') }}">Add Post</a>
+                </li>
 
             {% else %}
 
@@ -49,7 +49,11 @@
             {% endif %}
 
                 <li>
-                    <a class="logo" href="{{ path('get_all_getMed') }}">Gets</a>
+                    <a class="logo" href="{{ path('get_posts_by_type', {'slug': 'i-want-share'}) }}">I want share</a>
+                </li>
+
+                <li>
+                    <a class="logo" href="{{ path('get_posts_by_type', {'slug': 'i-need-help'}) }}">I need help</a>
                 </li>
 
             </ul>
