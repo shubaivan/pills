@@ -35,12 +35,6 @@ class Tag
     protected $post;
 
     /**
-     * @ORM\ManyToMany(targetEntity="GetMed", inversedBy="tag")
-     * @ORM\JoinColumn(name="get_id", referencedColumnName="id")
-     */
-    protected $getMed;
-
-    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", name="createdAt")
      */
@@ -56,7 +50,6 @@ class Tag
     public function __construct()
     {
         $this->post = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->getMed = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -194,36 +187,8 @@ class Tag
         return $this->post;
     }
 
-    /**
-     * Add getMed
-     *
-     * @param \PillsBundle\Entity\GetMed $getMed
-     * @return Tag
-     */
-    public function addGetMed(\PillsBundle\Entity\GetMed $getMed)
+    public function __toString()
     {
-        $this->getMed[] = $getMed;
-
-        return $this;
-    }
-
-    /**
-     * Remove getMed
-     *
-     * @param \PillsBundle\Entity\GetMed $getMed
-     */
-    public function removeGetMed(\PillsBundle\Entity\GetMed $getMed)
-    {
-        $this->getMed->removeElement($getMed);
-    }
-
-    /**
-     * Get getMed
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getGetMed()
-    {
-        return $this->getMed;
+        return $this->hashTag;
     }
 }
