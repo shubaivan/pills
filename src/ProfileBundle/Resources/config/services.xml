@@ -35,7 +35,21 @@
             </call>
         </service>
 
+        <service id="profile.form.type.cities"
+                 class="ProfileBundle\Form\Fields\CityType">
+            <tag name="form.type" alias="cities"/>
+            <call method="setEntityManager">
+                <argument type="service" id="doctrine.orm.entity_manager" />
+            </call>
+        </service>
 
+        <service id="profile.form.type.country"
+                 class="ProfileBundle\Form\Fields\CountryType">
+            <tag name="form.type" alias="country"/>
+            <call method="setEntityManager">
+                <argument type="service" id="doctrine.orm.entity_manager" />
+            </call>
+        </service>
 
         <service id="profile.image_worker"
                  class="ProfileBundle\Helper\ImageWorker">

@@ -16,7 +16,6 @@ class ConnectController extends BaseConnectController
      */
     public function redirectToServiceAction(Request $request, $service)
     {
-//        dump($request);exit;
         // Check for a specified target path and store it before redirect if present
         $param = $this->container->getParameter('hwi_oauth.target_path_parameter');
         if ($request->hasSession()) {

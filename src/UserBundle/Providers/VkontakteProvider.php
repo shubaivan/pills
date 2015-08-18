@@ -22,8 +22,9 @@ class VkontakteProvider
      * @param UserResponseInterface $response
      * @return User
      */
-    public function setUserData(User $user, UserResponseInterface $response)
+    public function setUserData(User $user, UserResponseInterface $response, $country, $city)
     {
+//        dump($response, $ip);exit;
         // Get response from API server
         $responseArray = $response->getResponse();
 //        dump($response, $responseArray);exit;
@@ -50,6 +51,8 @@ class VkontakteProvider
         // Prepare new User object before adding to database
         $user
             ->setEnabled(true)
+            ->setCountry($country)
+            ->setCity($city)
 //            ->setSkype($userSkype)
             ->setUsername($userFirstName.' '.$userLastName)
             ->setFirstName($userFirstName)

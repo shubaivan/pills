@@ -12,4 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class CategoryRepository extends EntityRepository
 {
+    public function getCategory($category)
+    {
+
+        $qb = $this->getEntityManager()->createQueryBuilder('c');
+
+        $qb
+            ->select('c')
+            ->from('PillsBundle:Category', 'c')
+            ->where('c.title = :title')
+            ->setParameter('title', $category)
+            ->getQuery();
+        $query = $qb->getQuery();
+        $results = $query->getResult();
+
+        return $results;
+    }
 }

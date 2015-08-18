@@ -109,44 +109,6 @@ class Tag
     }
 
     /**
-     * Add post
-     *
-     * @param \PillsBundle\Entity\Post $post
-     * @return Tag
-     */
-    public function addPost(\PillsBundle\Entity\Post $post)
-    {
-        $this->post[] = $post;
-
-        return $this;
-    }
-
-    /**
-     * Remove post
-     *
-     * @param \PillsBundle\Entity\Post $post
-     */
-    public function removePost(\PillsBundle\Entity\Post $post)
-    {
-        $this->post->removeElement($post);
-    }
-
-    /**
-     * Get post
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPost()
-    {
-        return $this->post;
-    }
-
-    public function __toString()
-    {
-        return $this->hashTag;
-    }
-
-    /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
@@ -185,10 +147,48 @@ class Tag
     /**
      * Get deletedAt
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
     public function getDeletedAt()
     {
         return $this->deletedAt;
+    }
+
+    /**
+     * Add post
+     *
+     * @param \PillsBundle\Entity\Post $post
+     * @return Tag
+     */
+    public function addPost(\PillsBundle\Entity\Post $post)
+    {
+        $this->post[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param \PillsBundle\Entity\Post $post
+     */
+    public function removePost(\PillsBundle\Entity\Post $post)
+    {
+        $this->post->removeElement($post);
+    }
+
+    /**
+     * Get post
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    public function __toString()
+    {
+        return $this->hashTag;
     }
 }

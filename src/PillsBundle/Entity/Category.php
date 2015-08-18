@@ -76,6 +76,29 @@ class Category
     }
 
     /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Category
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
      * Add posts
      *
      * @param \PillsBundle\Entity\Post $posts
@@ -111,28 +134,5 @@ class Category
     public function __toString()
     {
         return $this->title;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Category
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string 
-     */
-    public function getSlug()
-    {
-        return $this->slug;
     }
 }

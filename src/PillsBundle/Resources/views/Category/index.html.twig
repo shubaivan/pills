@@ -1,9 +1,9 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}PillsBundle:Post:index{% endblock %}
+{% block title %}{{ post.category }}{% endblock %}
 
 {% block body %}
-    <h1>Welcome to the Post:index page</h1>
+    <h1>Post by Category</h1>
 
     <!-- Blog Entries Column -->
     <div class="col-md-8">
@@ -28,7 +28,10 @@
                 <a href="#">Blog Post {{ post.title }}</a>
             </h2>
             <p class="lead">
-                Category:<a href="{{ path('get_posts_for_category', {'slug': post.category.slug}) }}">{{ post.category }}</a>
+                {#Category:<a href="{{ path('get_posts_by_category', {'category': post.category.slug}) }}">{{ post.category }}</a>#}
+                <a class="btn btn-primary" href="{{ path('get_posts_by_category', {'category': post.category.slug}) }}">{{ post.category }} <span class="glyphicon glyphicon-th"></span></a>
+                <a class="btn btn-primary" href="{{ path('get_posts_by_type', {'slug': post.type.slug}) }}">{{ post.type }} <span class="glyphicon glyphicon-plus"></span></a>
+
             </p>
 
 

@@ -17,38 +17,31 @@ class PostRepository extends EntityRepository
 
     public function getPostByTag($tag)
     {
-        $date = new \DateTime;
-
         $qb = $this->getEntityManager()->createQueryBuilder('p');
 
-//        $qb
-//            ->select('p')
-//            ->from('PillsBundle:Post', 'p')
-//            ->getQuery();
-//
-//        $query = $qb->getQuery();
-//        $results = $query->getResult();
-//        dump($results);exit;
-//        $arrayResults = array();
-//
-//        foreach ($results as $result) {
-//            $result->getTag();
-////            dump($result);exit;
-//
-//                if (is_array($result->getTag())) {
-//                    if (count(array_diff($result->getTag(), $tags)) > 0) {
-//                        $arrayResults[] = $result;
-//                    }
-//
-//                }
-//
-//        }
-
-        $qb ->select('p')
+        $qb
+            ->select('p')
             ->from('PillsBundle:Post', 'p')
             ->join('p.tag', 't')
             ->where('t = :tag')
             ->setParameter('tag', $tag)
+            ->getQuery();
+
+        $query = $qb->getQuery();
+        $results = $query->getResult();
+
+        return $results;
+    }
+
+    public function getPostByType($type)
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder('p');
+
+        $qb ->select('p')
+            ->from('PillsBundle:Post', 'p')
+            ->join('p.type', 'c')
+            ->where('c = :type')
+            ->setParameter('type', $type)
             ->getQuery();
 
 //        return $arrayResults;
@@ -60,8 +53,6 @@ class PostRepository extends EntityRepository
 
     public function getPostByCategory($category)
     {
-        $date = new \DateTime;
-
         $qb = $this->getEntityManager()->createQueryBuilder('p');
 
         $qb ->select('p')
