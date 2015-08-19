@@ -84,7 +84,7 @@ class UserProvider extends BaseClass
 //        dump($ip, $ips);exit;
 
         $hAid = $this->additional_function;
-//        $ip = "109.227.72.9"; //Che
+        $ip = "109.227.72.9"; //Che
 //                $ip = '176.241.128.140'; //our ip
 //                $ip = '192.162.142.150'; //zaporizha
                 $ip = '176.67.18.0'; //kyiv
@@ -94,8 +94,8 @@ class UserProvider extends BaseClass
 //                $ip = '5.34.183.81';//harkov
 //                $ip = '31.184.242.73';//SPT
 //                $ip = '128.101.101.101'; //minissota
-        $ip = $this->requestStack->getCurrentRequest()->getClientIP();
-        dump($ip, $ips, $ip);exit;
+//        $ip = $this->requestStack->getCurrentRequest()->getClientIP();
+//        dump($ip, $ips, $ip);exit;
         $record = $hAid->getInfoIpCountry($ip);
         $get_record_city = $hAid->getInfoIpCity($ip);
         $record_country = $record->country->name;
