@@ -135,7 +135,7 @@ class UserProvider extends BaseClass
 
                 $serviceProvider = $service."Provider";
 
-                $user = $this->$serviceProvider->setUserData($user, $response);
+                $user = $this->$serviceProvider->setUserData($user, $response, $country, $city);
 
                 $this->userManager->updateUser($user);
 
