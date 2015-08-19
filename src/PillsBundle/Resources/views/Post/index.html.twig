@@ -36,12 +36,13 @@
 
 
     <p><span class="glyphicon glyphicon-time"></span> {{ post.createdAt.date|date("d.m.Y H:i:s") }}</p>
+        <p><span class="glyphicon glyphicon-user"></span> {{ post.author.firstName }} {{ post.author.lastName }}</p>
     <hr>
 
         <img src="{% if post.photo %} {{ asset(post.photo) }} {% else %} {{ "https://s3-eu-west-1.amazonaws.com/aog-db-files-stage/2015/07/25/upload_photo.jpeg" }} {% endif %}" class="img-responsive" alt="">
 
     <hr>
-    <p>{{ post.description }}.</p>
+    <p><span class="glyphicon glyphicon-file"></span>{{ post.description }}.</p>
     {#<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>#}
         {% for tags in post.tag %}
         <a class="btn btn-primary" href="{{ path('get_posts_by_tag', {'tag': tags.hashSlug }) }}">{{ tags.hashTag }} <span class="glyphicon glyphicon-chevron-right"></span></a>
