@@ -79,8 +79,8 @@ class UserProvider extends BaseClass
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
-//        $ipr = $_SERVER['REMOTE_ADDR'];
-//        $ips = $_SERVER['SERVER_ADDR'];
+        $ipr = $_SERVER['REMOTE_ADDR'];
+        $ips = $_SERVER['SERVER_ADDR'];
 //        dump($ip, $ips);exit;
 
         $hAid = $this->additional_function;
@@ -94,7 +94,8 @@ class UserProvider extends BaseClass
 //                $ip = '5.34.183.81';//harkov
 //                $ip = '31.184.242.73';//SPT
 //                $ip = '128.101.101.101'; //minissota
-//        $ip = $this->requestStack->getCurrentRequest()->getClientIP();
+        $ip = $this->requestStack->getCurrentRequest()->getClientIP();
+        dump($ip, $ips, $ip);exit;
         $record = $hAid->getInfoIpCountry($ip);
         $get_record_city = $hAid->getInfoIpCity($ip);
         $record_country = $record->country->name;
