@@ -1,5 +1,5 @@
 PillsBundle\Entity\Post:
-  post{1..60}:
+  post{1..100}:
     title: <word()>
     description: <realText()>
     author: @user*

@@ -41,7 +41,7 @@ class TagRepository extends EntityRepository
         $qb
             ->select('t')
             ->from('PillsBundle:Tag', 't')
-            ->where('t.hashTag = :hash')
+            ->where('t.hashSlug = :hash')
             ->setParameter('hash', $hash)
             ->getQuery();
         $query = $qb->getQuery();

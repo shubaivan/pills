@@ -77,7 +77,7 @@ class User extends BaseUser
     protected $githubAccessToken;
 
     /**
-     * @Gedmo\Slug(fields={"firstName", "lastName"})
+     * @Gedmo\Slug(fields={"firstName", "lastName"}, separator="-")
      * @ORM\Column(type="string")
      */
     protected $slug;
