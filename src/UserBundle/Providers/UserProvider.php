@@ -87,14 +87,14 @@ class UserProvider extends BaseClass
 //        $ip = "109.227.72.9"; //Che
 //                $ip = '176.241.128.140'; //our ip
 //                $ip = '192.162.142.150'; //zaporizha
-//                $ip = '176.67.18.0'; //kyiv
+                $ip = '176.67.18.0'; //kyiv
 //                $ip = '158.58.168.79'; //milan
 //                $ip = '46.101.34.215'; //london
 //                $ip = '62.109.30.190'; //moscow
 //                $ip = '5.34.183.81';//harkov
 //                $ip = '31.184.242.73';//SPT
 //                $ip = '128.101.101.101'; //minissota
-        $ip = $this->requestStack->getCurrentRequest()->getClientIP();
+//        $ip = $this->requestStack->getCurrentRequest()->getClientIP();
         $record = $hAid->getInfoIpCountry($ip);
         $get_record_city = $hAid->getInfoIpCity($ip);
         $record_country = $record->country->name;
