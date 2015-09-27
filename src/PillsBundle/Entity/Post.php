@@ -89,6 +89,11 @@ class Post
     protected $description;
 
     /**
+     * @ORM\OneToMany(targetEntity="Rating", mappedBy="post", cascade={"persist", "remove"})
+     */
+    protected $ratings;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -390,5 +395,40 @@ class Post
     public function getCity()
     {
         return $this->city;
+    }
+
+
+
+    /**
+     * Add ratings
+     *
+     * @param \PillsBundle\Entity\Rating $ratings
+     * @return Post
+     */
+    public function addRating(\PillsBundle\Entity\Rating $ratings)
+    {
+        $this->ratings[] = $ratings;
+
+        return $this;
+    }
+
+    /**
+     * Remove ratings
+     *
+     * @param \PillsBundle\Entity\Rating $ratings
+     */
+    public function removeRating(\PillsBundle\Entity\Rating $ratings)
+    {
+        $this->ratings->removeElement($ratings);
+    }
+
+    /**
+     * Get ratings
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRatings()
+    {
+        return $this->ratings;
     }
 }

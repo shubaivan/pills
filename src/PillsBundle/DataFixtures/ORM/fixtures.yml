@@ -30,6 +30,12 @@ PillsBundle\Entity\Tag:
     hashTag: <word()>
     post: 5x @post*
 
+PillsBundle\Entity\Rating:
+  rating{1..100}:
+    rating: 1
+    post: @post*
+    user: @users*
+
 PillsBundle\Entity\Type:
   type1:
     name: I want share

@@ -187,6 +187,11 @@ class User extends BaseUser
      */
     private $rate;
 
+    /**
+     * @ORM\OneToMany(targetEntity="\PillsBundle\Entity\Rating", mappedBy="user", cascade={"persist", "remove"})
+     */
+    protected $ratings;
+
 
     public function isFakeEmail()
     {
@@ -885,5 +890,38 @@ class User extends BaseUser
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * Add ratings
+     *
+     * @param \PillsBundle\Entity\Rating $ratings
+     * @return User
+     */
+    public function addRating(\PillsBundle\Entity\Rating $ratings)
+    {
+        $this->ratings[] = $ratings;
+
+        return $this;
+    }
+
+    /**
+     * Remove ratings
+     *
+     * @param \PillsBundle\Entity\Rating $ratings
+     */
+    public function removeRating(\PillsBundle\Entity\Rating $ratings)
+    {
+        $this->ratings->removeElement($ratings);
+    }
+
+    /**
+     * Get ratings
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRatings()
+    {
+        return $this->ratings;
     }
 }
