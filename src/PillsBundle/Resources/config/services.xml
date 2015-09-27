@@ -21,7 +21,7 @@
 
         <service id="profile.additional_function"
                  class="PillsBundle\Helper\AdditionalFunction">
-            <argument type="service" id="templating" />
+            <!--<argument type="service" id="templating" />-->
             <argument type="service" id="doctrine.orm.entity_manager" />
 
             <call method="setRootDir">
@@ -41,6 +41,19 @@
                  factory-service="doctrine.orm.default_entity_manager"
                  factory-method="getRepository">
             <argument>PillsBundle:Country</argument>
+        </service>
+
+
+        <service id="pills.profile.mail_manager"
+                 class="PillsBundle\Helper\MailManager">
+            <argument type="service" id="templating" />
+            <argument type="service" id="hip_mandrill.dispatcher" />
+            <call method="setAdminEmails">
+                <argument>%admin_mails%</argument>
+            </call>
+            <call method="setAdminEmail">
+                <argument>%admin_mail%</argument>
+            </call>
         </service>
 
     </services>
