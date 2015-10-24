@@ -4,20 +4,25 @@ namespace PillsBundle\Helper;
 
 use Doctrine\ORM\EntityManager;
 use GeoIp2\Database\Reader;
+use UserBundle\Entity\User;
 
 class AdditionalFunction
 {
-    protected $_templateEngine;
+//    protected $_templateEngine;
     protected $em;
 
     private $rootDir;
 
+    public function __construct(EntityManager $em)
+    {
+//        $this->templateEngine = $_templateEngine;
+        $this->em = $em;
+    }
 
     public function setRootDir($rootDir)
     {
         $this->rootDir = $rootDir;
     }
-
 
     public function getInfoIpCountry($ip)
     {
@@ -68,5 +73,31 @@ class AdditionalFunction
         }
 
         return $data;
+    }
+
+    public function generatePassword($length = 8)
+    {
+        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $count = mb_strlen($chars);
+
+        for ($i = 0, $result = ''; $i < $length; $i++) {
+            $index = rand(0, $count - 1);
+            $result .= mb_substr($chars, $index, 1);
+        }
+
+        return $result;
+    }
+
+    public function isUniqueEmail(User $user)
+    {
+        $found = $this->em->getRepository('UserBundle:User')->findByEmail($user->getEmail());
+        if (empty($found)) {
+            try {
+                $this->em->flush();
+            } catch (Exception $e) { return false; }
+        } else {
+            return false;
+        }
+        return true;
     }
 }

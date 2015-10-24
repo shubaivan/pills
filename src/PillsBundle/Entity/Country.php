@@ -5,7 +5,7 @@ namespace PillsBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Cities
+ * Country
  *
  * @ORM\Table(name="country")
  * @ORM\Entity(repositoryClass="PillsBundle\Entity\Repository\CountryRepository")
